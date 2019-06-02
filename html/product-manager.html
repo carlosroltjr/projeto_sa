@@ -3,44 +3,21 @@
     <head>
 
         <meta charset="UTF-8">
-        <title>Tela 1</title>
-        <link rel='stylesheet' type= text/css href= 'projeto_sa\css\user-manager.css'>
+        <script type="text/javascript" src="../js/product-manager.js"></script>
+        <title>Food Truck Manager</title>
+        <link rel='stylesheet' type= text/css href= '../css/product-manager.css'>
 
     </head>
 
     <body>
 
-        <input type="checkbox" id="bt_menu">
-        <label for="bt_menu">&#9776;</label>
-
-            <nav class="menu">
-                <ul>
-                    <li> <a href="#">Home</a></li>
-                    <li> <a href="#">Cadastro</a>
-                        <ul>
-                            <li> <a href="#">Produtos</a></li>
-                            <li> <a href="#">Clientes</a></li>
-                            <li> <a href="#">Funcionários</a></li>
-                        </ul>
-                    </li>	
-                    <li> <a href="#">Vendas</a></li>
-                    <li> <a href="#">Relatórios</a></li>
-                    <li> <a href="#">Contato</a></li>
-                </ul>	
-            </nav>
-
-        <div id="interface">
-            <header id= "cabecalho">
-
-
-            </header>
         <center>
-        <img src="../img/logo.png" width="750" height="200"/>
+        <img src="../img/logo.png" width="400">
 
         <hgroup>
         <style type="centralizado"></style>
-            
-            <form name="formulario" method="post" onsubmit="return processar('myTable')">  
+
+            <form name="formulario" method="post" onsubmit="return processar('myTable')">
                 Produto: <input type="text" name="productName">
                 Tipo: <select class="form-control" id="type" name="productType">
                     <option value="Comida">Comida</option>
@@ -49,8 +26,8 @@
                 </select>
                 Preço: <input type="text" name="productPrice">
                 Estoque: <input type="number" name="productStock">
-                <input type="submit" value="Confirmar"> 
-                
+                <input type="submit" value="Confirmar">
+
             </form>
             <table border='1' width='750' height='25'>
                 <thead>
@@ -62,7 +39,7 @@
                     </tr>
                 </thead>
                 <tbody id="myTable"></tbody>
-                <button id="editProduct" name="editProd">Edit</button> 
+                <button id="editProduct" name="editProd">Edit</button>
                 <button id="delProduct" name="delProd">Delete</button>
             </table>
 
@@ -70,7 +47,7 @@
         </hgroup>
 
 
-        <script src="projeto_sa\js\product-manager.js"></script>
-        </div>>
+
+        </div>
     </body>
 </html>

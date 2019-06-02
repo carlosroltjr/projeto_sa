@@ -15,6 +15,6 @@ function register(){
   localStorage.setItem("emailArray", emailArray);
   localStorage.setItem("passwordArray", passwordArray);
 
-  alert("Cliente cadastrado com sucesso!")
+  alert("Food Truck cadastrado com sucesso!")
 
 }

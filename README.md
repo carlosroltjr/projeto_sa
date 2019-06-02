@@ -16,7 +16,7 @@ A mesma coisa serve para referenciar arquivos CSS.
 
 Antes de ser feita qualquer atualização no projeto, favor verificar se seu código está de acordo com os já postados, 
 ou seja, se o nome das variáveis, arquivos e referência são iguais no conteúdo que estiver 
-sendo postado com o que já está postado
+sendo postado com o que já está postado.
 
 Preferir usar o mesmo padrão de criação de variáveis, 
 por exemplo: emailArray, admPassword, idFoodtruck, com a primeira palavra tudo em letra minúscula

@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+    <head>
+
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="../js/product-manager.js"></script>
+        <title>Food Truck Manager</title>
+        <link rel='stylesheet' type= text/css href= '../css/product-manager.css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+        
+
+
+    </head>
+
+    <body>
+
+        <center>
+        <img src="../img/logo.png" width="400">
+
+        <hgroup>
+        <style type="centralizado"></style>
+
+            <h1>Vendas</h1>
+
+            
+            <table border='1' width='750' height='25'>
+                <thead>
+                    <tr>
+                        <th>Produtos</th>
+                        <th>Tipo</th>
+                        <th>R$</th>
+                        <th>Disponível</th>
+                        <th>Pedido</th>
+                        <th>Inserir</th>
+                    </tr>
+                </thead>
+                <tbody id="myTable">
+                    <tr>
+                        <td>Ex: Hamburguer</td>
+                        <td>Comida</td>
+                        <td>R$ 20,00</td>
+                        <td>50</td>
+                        <td>
+                            <input type="number" id="qtdProduct" name="qtdProd" name="quantity" min="1" max="99">
+                        </td>
+                        <td>
+                            <button class="btn btn-success" id="insertProduct" name="insertProd" data-toggle="modal" data-target="#myModal">Inserir</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button class="btn btn-success" id="confirmSell" name="confSell" data-toggle="modal" data-target="#myModal">Confirmar Venda</button>
+
+        </center>
+        </hgroup>
+
+
+
+        </div>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </body>
+</html>

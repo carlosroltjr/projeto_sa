@@ -6,6 +6,16 @@
         <script type="text/javascript" src="../js/product-manager.js"></script>
         <title>Food Truck Manager</title>
         <link rel='stylesheet' type= text/css href= '../css/product-manager.css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+        
+
 
     </head>
 
@@ -17,18 +27,9 @@
         <hgroup>
         <style type="centralizado"></style>
 
-            <form name="formulario" method="post" onsubmit="return processar('myTable')">
-                Produto: <input type="text" name="productName">
-                Tipo: <select class="form-control" id="type" name="productType">
-                    <option value="Comida">Comida</option>
-                    <option value="Bebida">Bebida</option>
-                    <option value="Outros">Outros</option>
-                </select>
-                Preço: <input type="text" name="productPrice">
-                Estoque: <input type="number" name="productStock">
-                <input type="submit" value="Confirmar">
+            <h1>Cadastrar Produtos</h1>
 
-            </form>
+            
             <table border='1' width='750' height='25'>
                 <thead>
                     <tr>
@@ -36,12 +37,61 @@
                         <th>Tipo</th>
                         <th>R$</th>
                         <th>Disponível</th>
+                        <th>Delete</th>
+                        <th>Edit</th>
                     </tr>
                 </thead>
-                <tbody id="myTable"></tbody>
-                <button id="editProduct" name="editProd">Edit</button>
-                <button id="delProduct" name="delProd">Delete</button>
+                <tbody id="myTable">
+                    <tr>
+                        <td>Ex: Hamburguer</td>
+                        <td>Comida</td>
+                        <td>R$ 20,00</td>
+                        <td>50</td>
+                        <td>
+                                <button class="btn btn-danger" id="delProduct" name="delProd">Delete</button>
+                        </td>
+                        <td>
+                                <button class="btn btn-info" id="editProduct" name="editProd" data-toggle="modal" data-target="#myModal">Edit</button>
+                        </td>
+                    </tr>
+                </tbody>
+
             </table>
+
+             <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                Cadastrar Produto
+            </button>
+    
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Cadastrar Produto</h4>
+                    </div>
+                    <div class="modal-body">
+                            <form name="formulario" method="post" onsubmit="return processar('myTable')">
+                                    Produto: <input type="text" name="productName">
+                                    Tipo: <select class="form-control-sml" id="type" name="productType">
+                                        <option value="Comida">Comida</option>
+                                        <option value="Bebida">Bebida</option>
+                                        <option value="Outros">Outros</option>
+                                    </select>
+                                    Preço: <input type="text" name="productPrice">
+                                    Estoque: <input type="number" name="productStock">
+                                    <input type="submit" value="Confirmar">
+                    
+                                </form>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+                </div>
+            </div>
 
         </center>
         </hgroup>
@@ -49,5 +99,7 @@
 
 
         </div>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     </body>
 </html>

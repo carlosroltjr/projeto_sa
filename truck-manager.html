@@ -1,0 +1,249 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+
+	<head>
+		<meta charset="UTF-8">
+        <title>Food Truck Manager</title>
+        <link rel='stylesheet' type= text/css href= '../css/product-manager.css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    </head>
+
+    <body>
+
+    	<center>
+    		<img src="../img/logo.png" width="400"><br><br>
+      	</center>
+
+
+	        <div class="text">
+		        <h5><strong>Número de food trucks cadastrados: 3</strong></h5><br>
+		    </div>
+	        
+	        <center>
+
+	        <div class="row mb-5">
+
+	        	<div class="col-sm-4">
+
+		        	<div class="card text-center" style="width:15rem; height:20rem;">
+
+		        		<div class="card-header text-white bg-info mb-2">
+		        			<h4 class="text">Burguer&Cia</h4>
+		        		</div>
+		        		<div class="card-body">
+		        			<h6 class="card-subtitle mb-3 text-muted">ID: 1</h6>
+		        		
+		        		<ul class="list-group list-group-flush">
+		        			<li class="list-group-item">23/04/2019</li>
+		        			<li class="list-group-item">Maria Alves</li>
+							<li class="list-group-item">(48) 99982-8997</li>	
+							<li class="list-group-item">burguerecia@</li>	
+		        		</ul>
+		        		</div>
+		        		<div>
+		        				
+		        			 <button type="button" class="btn btn-secondary btn-small" data-toggle="modal" data-target="#editModal">Editar</button>
+
+
+		        			 <button type="button" class="btn btn-danger btn-small" data-toggle="modal" data-target="#delModal">Excluir</button><br>
+		        			
+							
+								<!-- Modal -->
+								<div class="modal fade" id="delModal" tabindex="-1" role="dialog" aria-labelledby="delModal" aria-hidden="true">
+								  <div class="modal-dialog" role="document">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <h5 class="modal-title" id="delModal">Excluir cadastro</h5>
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								          <span aria-hidden="true">&times;</span>
+								        </button>
+								      </div>
+								      <div class="modal-body">
+								       Deseja excluir o cadastro deste Food Truck?
+								      </div>
+								      <div class="modal-footer">
+								        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+								        <button type="button" class="btn btn-danger">Excluir</button>
+								      </div>
+								    </div>
+								  </div>
+								</div>
+
+												 
+				  		</div>
+				  	</div>
+			
+				</div>
+
+				
+
+				<div class="col-sm-4">
+
+		        	<div class="card text-center" style="width:15rem; height:20rem;">
+
+		        		<div class="card-header text-white bg-info mb-2">
+		        			<h4 class="text">Doceria Gourmet</h4>
+		        		</div>
+		        		<div class="card-body">
+		        			<h6 class="card-subtitle mb-3 text-muted">ID: 2</h6>
+		        		
+		        		<ul class="list-group list-group-flush">
+		        			<li class="list-group-item">03/05/2019</li>
+		        			<li class="list-group-item">Ricardo Vieira</li>
+							<li class="list-group-item">(48) 98824-0045</li>	
+							<li class="list-group-item">doceria@</li>	
+		        		</ul>
+		        		</div>
+		        		<div>
+		        			<button type="button" class="btn btn-secondary btn-small" data-toggle="modal" data-target="#editModal">Editar</button>
+
+
+		        			 <button type="button" class="btn btn-danger btn-small" data-toggle="modal" data-target="#delModal">Excluir</button>
+		        			
+							
+								<!-- Modal -->
+								<div class="modal fade" id="delModal" tabindex="-1" role="dialog" aria-labelledby="delModal" aria-hidden="true">
+								  <div class="modal-dialog" role="document">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <h5 class="modal-title" id="delModal">Excluir cadastro</h5>
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								          <span aria-hidden="true">&times;</span>
+								        </button>
+								      </div>
+								      <div class="modal-body">
+								       Deseja excluir o cadastro deste Food Truck?
+								      </div>
+								      <div class="modal-footer">
+								        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+								        <button type="button" class="btn btn-danger">Excluir</button>
+								      </div>
+								    </div>
+								  </div>
+								</div>
+
+												 
+				  		</div>
+				  	</div>
+			
+				</div>
+
+
+					<div class="col-sm-4">
+
+		        	<div class="card text-center" style="width:15rem; height:20rem;">
+
+		        		<div class="card-header text-white bg-info mb-2">
+		        			<h4 class="text">Pastel do Mané</h4>
+		        		</div>
+		        		<div class="card-body">
+		        			<h6 class="card-subtitle mb-3 text-muted">ID: 3</h6>
+		        		
+		        		<ul class="list-group list-group-flush">
+		        			<li class="list-group-item">10/05/2019</li>
+		        			<li class="list-group-item">José Tudiz</li>
+							<li class="list-group-item">(48) 99217-1234</li>	
+							<li class="list-group-item">pasteldomane@</li>	
+		        		</ul>
+		        		</div>
+		        		<div>
+		        			<button type="button" class="btn btn-secondary btn-small" data-toggle="modal" data-target="#editModal">Editar</button>
+
+
+		        			 <button type="button" class="btn btn-danger btn-small" data-toggle="modal" data-target="#delModal">Excluir</button>
+		        			
+							
+								<!-- Modal -->
+								<div class="modal fade" id="delModal" tabindex="-1" role="dialog" aria-labelledby="delModal" aria-hidden="true">
+								  <div class="modal-dialog" role="document">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <h5 class="modal-title" id="delModal">Excluir cadastro</h5>
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								          <span aria-hidden="true">&times;</span>
+								        </button>
+								      </div>
+								      <div class="modal-body">
+								       Deseja excluir o cadastro deste Food Truck?
+								      </div>
+								      <div class="modal-footer">
+								        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+								        <button type="button" class="btn btn-danger">Excluir</button>
+								      </div>
+								    </div>
+								  </div>
+								</div>
+
+												 
+				  		</div>
+				  	</div>
+			
+				</div>
+
+				</center>
+				<br><br>	
+	            <p>
+	            <center>
+	            <button type="button" class="btn text-white btn-success btn-lg" data-toggle="modal" data-target="#cadModal">CADASTRAR NOVO FOOD TRUCK</button>
+	        	</p>
+	    
+	             <div class="modal fade" id="cadModal" tabindex="-1" role="dialog" aria-labelledby="cadModalLabel">
+	                <div class="modal-dialog modal-lg" role="document">
+	                <div class="modal-content">
+	                    <div class="modal-header">
+	                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+	                    <h4 class="modal-title" id="cadModalLabel">Cadastrando Food Truck</h4>
+	                    </div>
+	                    <div class="modal-body">
+	                            <form name="formulario" method="post" onsubmit="return processar('myTable')">
+														
+									<p>
+									Nome da unidade Food Truck:  <input type="text" id="nome" size="50" maxlength="30" placeHolder="Digite o nome"><br><br>
+									Código da unidade Food Truck:  <input type="number" id="codigo" min="1" max="20"><br><br>
+									Data de entrada no Food Park:  <input type="date" id="data"><br><br>
+									</p>
+										
+									<p>
+									Nome do(a) responsável pelo Food Truck:  <input type="text" id="responsavel" size="50" maxlength="50" placeHolder="Digite o nome completo"><br><br>
+									Telefone:  <input type="text" id="tel" size="50" maxlength="30" placeholder="(00) 00000-0000"><br><br>
+									Login:  <input type="text" id="login" size="50" maxlength="30"placeholder="foodtruck@ftmanager.com"><br><br>
+									Senha:  <input type="senha" id="senha" size="50" maxlength="30" placeholder="Senha padrão"><br><br>	
+									</p>
+										
+	                                   
+	                    
+	                             </form>
+	                    </div>
+	                    <div class="modal-footer">
+	                    <button type="button" class="btn btn-default" data-dismiss="modal" >Fechar</button>
+	                    <button type="button" class="btn btn-primary">Salvar Dados</button>
+	                    </div>
+	                </div>
+	                </div>
+	            </div>
+			
+
+		    </div>	
+	      
+			
+
+			
+				
+
+	       
+
+        </center>
+        
+
+        </div>
+       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	</body>
+    
+    <script type="text/javascript" src="../js/truck-manager.js"></script>
+
+</html>

@@ -1,17 +1,86 @@
 <!DOCTYPE HTML>
 <html lang="pt-br">
+<head>
 
-	<head>
-		<meta charset="UTF-8">
-		<title>Food Truck Manager</title>
-		<link rel='stylesheet' type= text/css href= '../css/dashboard.css'>
-	</head>
+	<meta charset="UTF-8">
+	<title>Tela 1</title>
+	<link rel='stylesheet' type= text/css href= '../css/dashboard.css'>
+	<script src="https://wchat.freshchat.com/js/widget.js"></script>
 
-	<body>
-    <a href="#" onclick="window.open('dashboard.html', '_self')">Home</a>
-    <a href="#" onclick="window.open('product-manager.html', '_self')">Produtos</a>
-    <a href="#" onclick="window.open('index.html', '_self')">Sair</a>
-		<img width="400" src="../img/logo.png"/>
-  </body>
+  <title>Dashboard</title>
 
+</head>
+
+<body>
+
+<input type="checkbox" id="bt_menu">
+<label for="bt_menu">&#9776;</label>
+
+	<nav class="menu">
+		<ul>
+			<li> <a href="#">Home</a></li>
+			<li> <a href="#">Cadastro</a>
+				<ul>
+					<li> <a href="#">Produtos</a></li>
+					<li> <a href="#">Clientes</a></li>
+					<li> <a href="#">Funcionários</a></li>
+				</ul>
+			</li>	
+			<li> <a href="#">Vendas</a></li>
+			<li> <a href="#">Relatórios</a></li>
+			<li> <a href="#">Contato</a></li>
+		</ul>	
+	</nav>
+
+<div id="interface">
+	<header id= "cabecalho">
+
+</header>
+<center>
+	<div>
+		<img class="logo" src="../img/logo.png" width="500" />
+	</div>
+
+<hgroup>
+<style type="centralizado"></style>
+<h1 align="center">Food Truck Manager </h1>
+<h5 align="center">CNPJ: 098.745.632/0001-99</h5>
+<h5 align="center">por NOME DA NOSSA EMPRESA</h5>
+<h3 align="center">Email: contato@foodtruckmanager.com</h3>
+<h3 align="center"><br>Telefone: (48) 99999-9999</h3>
+
+</center>
+</hgroup>
+
+<section>
+    <div class="rede" id="facebook">
+     <img class="icone" src="../img/facebook.png" />
+    </div>
+    <div class="rede" id="twitter">
+     <img class="icone" src="../img/twitter.png" />
+    </div>
+    <div class="rede" id="instagram">
+     <img class="icone" src="../img/instagram.png" />
+    </div>
+    <div class="rede" id="snap">
+     <img class="icone" src="../img/snap.png" />
+    </div>
+    <div class="rede" id="plus">
+     <img class="icone" src="../img/plus.png" />
+    </div>
+    <div class="rede" id="youtube">
+     <img class="icone" src="../img/youtube.png" />
+    </div>
+  
+  </section>
+
+  	<script> 
+	  window.fcWidget.init({     /*aqui é a instalçao freshchat*/
+	    token: "38095888-436b-48c8-a268-fae170ed89af",
+	    host: "https://wchat.freshchat.com"
+	  });
+
+	</script>
+
+</body>
 </html>

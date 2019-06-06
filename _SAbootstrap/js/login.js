@@ -27,6 +27,6 @@ function login(){
     }
   } else{
     alert("Logando como Admin...");
-    window.open('adm-dashboard.html', '_self');
+    window.open('index.html', '_self');
   }
 }

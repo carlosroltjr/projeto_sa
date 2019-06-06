@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <!-- Custom fonts for this template-->
+  <link href="libs/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template-->
+  <link href="css/main.css" rel="stylesheet">
+  <link href="css/personal.css" rel="stylesheet">
+
+  <title>Foodtruck Manager - Foodtruck</title>
+</head>
+
+<body id="page-top">
+  <nav class="navbar navbar-expand navbar-dark bg-orange static-top">
+    <a class="navbar-brand mr-1" href="index.html"><img src="img/logo.png" width="180px"></a>
+
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Navbar -->
+
+  </nav>
+
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="foodtruck-manager.html">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Foodtrucks</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="product-manager.html">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Produtos</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="charts.html">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Relatórios</span></a>
+      </li>
+    </ul>
+
+    <div id="content-wrapper">
+      <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="#">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active">Produto</li>
+        </ol>
+
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-table"></i> Cadastro de Produtos</div>
+          <div class="card-body">
+
+            <form name="formulario" method="post" onsubmit="return processar('myTable')">
+
+              <div class="form-group">
+                <div class="form-label-group">
+                  <input type="text" id="productName" class="form-control" placeholder="Produto:" required="required"
+                    autofocus="autofocus">
+                  <label for="productName">Produto:</label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Tipo:</label>
+                <div class="form-label-group">
+                  <select class="form-control" id="type" name="productType">
+                    <option value="Comida">Comida</option>
+                    <option value="Bebida">Bebida</option>
+                    <option value="Outros">Outros</option>
+                  </select>
+
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="form-label-group">
+                  <input type="text" id="productPrice" class="form-control" placeholder="Preço:" required="required"
+                    autofocus="autofocus">
+                  <label for="productPrice">Preço:</label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="form-label-group">
+                  <input type="text" id="productStock" class="form-control" placeholder="Estoque:" required="required"
+                    autofocus="autofocus">
+                  <label for="productStock">Estoque:</label>
+                </div>
+              </div>
+
+              <input class="btn btn-primary" type="submit" value="Salvar">
+
+            </form>
+          </div>
+        </div>
+
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
+                <thead>
+                  <tr>
+                    <th>Produtos</th>
+                    <th>Tipo</th>
+                    <th>R$</th>
+                    <th>Disponível</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <th>Produtos</th>
+                    <th>Tipo</th>
+                    <th>R$</th>
+                    <th>Disponível</th>
+                  </tr>
+                </tfoot>
+
+                <tbody id="myTable"></tbody>
+                <button id="editProduct" name="editProd">Edit</button>
+                <button id="delProduct" name="delProd">Delete</button>
+
+              </table>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+
+    <!-- Sticky Footer -->
+    <footer class="sticky-footer">
+      <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+          <span>Copyright © Foodtruck Manager 2019</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+
+  <script src="js/product-manager.js"></script>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="libs/jquery/jquery.min.js"></script>
+  <script src="libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="libs/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Page level plugin JavaScript-->
+  <script src="libs/chart.js/Chart.min.js"></script>
+  <script src="libs/datatables/jquery.dataTables.js"></script>
+  <script src="libs/datatables/dataTables.bootstrap4.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin.min.js"></script>
+
+  <!-- Demo scripts for this page-->
+  <script src="js/demo/datatables-demo.js"></script>
+  <script src="js/demo/chart-area-demo.js"></script>
+</body>
+
+</html>

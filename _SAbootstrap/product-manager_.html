@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+    <head>
+
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="../js/product-manager.js"></script>
+        <title>Food Truck Manager</title>
+        <link rel='stylesheet' type= text/css href= '../css/product-manager.css'>
+
+    </head>
+
+    <body>
+
+        <center>
+        <img src="../img/logo.png" width="400">
+
+        <hgroup>
+        <style type="centralizado"></style>
+
+            <form name="formulario" method="post" onsubmit="return processar('myTable')">
+                Produto: <input type="text" name="productName">
+                Tipo: <select class="form-control" id="type" name="productType">
+                    <option value="Comida">Comida</option>
+                    <option value="Bebida">Bebida</option>
+                    <option value="Outros">Outros</option>
+                </select>
+                Preço: <input type="text" name="productPrice">
+                Estoque: <input type="number" name="productStock">
+                <input type="submit" value="Confirmar">
+
+            </form>
+            <table border='1' width='750' height='25'>
+                <thead>
+                    <tr>
+                        <th>Produtos</th>
+                        <th>Tipo</th>
+                        <th>R$</th>
+                        <th>Disponível</th>
+                    </tr>
+                </thead>
+                <tbody id="myTable"></tbody>
+                <button id="editProduct" name="editProd">Edit</button>
+                <button id="delProduct" name="delProd">Delete</button>
+            </table>
+
+        </center>
+        </hgroup>
+
+
+
+        </div>
+    </body>
+</html>

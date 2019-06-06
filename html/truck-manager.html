@@ -2,9 +2,9 @@
 <html lang="pt-br">
 
 	<head>
-	<meta charset="UTF-8">
+		<meta charset="UTF-8">
         <title>Food Truck Manager</title>
-        <link rel='stylesheet' type= text/css href= '../css/product-manager.css'>
+        <link rel='stylesheet' type= text/css href= '../css/truck-manager.css'>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -18,19 +18,19 @@
       	</center>
 
 
-	        <div class="text">
+	        <div class="text col-sm-5">
 		        <h5><strong>Número de food trucks cadastrados: 3</strong></h5><br>
 		    </div>
 	        
 	        <center>
 
-	        <div class="row mb-5">
+	        <div class="row mb-4">
 
-	        	<div class="col-sm-4">
+	        	<div class="col-sm-3">
 
 		        	<div class="card text-center" style="width:15rem; height:20rem;">
 
-		        		<div class="card-header text-white bg-info mb-2">
+		        		<div class="card-header text-white bg-dark mb-2">
 		        			<h4 class="text">Burguer&Cia</h4>
 		        		</div>
 		        		<div class="card-body">
@@ -45,13 +45,12 @@
 		        		</div>
 		        		<div>
 		        				
-		        			 <button type="button" class="btn btn-secondary btn-small" data-toggle="modal" data-target="#editModal">Editar</button>
+		        			 <button type="button" class="btn btn-edit btn-small" data-toggle="modal" data-target="#editModal">Editar</button>
 
 
-		        			 <button type="button" class="btn btn-danger btn-small" data-toggle="modal" data-target="#delModal">Excluir</button><br>
+		        			 <button type="button" class="btn btn-del btn-small" data-toggle="modal" data-target="#delModal">Excluir</button><br>
 		        			
 							
-								<!-- Modal -->
 								<div class="modal fade" id="delModal" tabindex="-1" role="dialog" aria-labelledby="delModal" aria-hidden="true">
 								  <div class="modal-dialog" role="document">
 								    <div class="modal-content">
@@ -80,11 +79,11 @@
 
 				
 
-				<div class="col-sm-4">
+				<div class="col-sm-3">
 
 		        	<div class="card text-center" style="width:15rem; height:20rem;">
 
-		        		<div class="card-header text-white bg-info mb-2">
+		        		<div class="card-header text-white bg-dark mb-2">
 		        			<h4 class="text">Doceria Gourmet</h4>
 		        		</div>
 		        		<div class="card-body">
@@ -98,13 +97,12 @@
 		        		</ul>
 		        		</div>
 		        		<div>
-		        			<button type="button" class="btn btn-secondary btn-small" data-toggle="modal" data-target="#editModal">Editar</button>
+		        			<button type="button" class="btn btn-edit btn-small" data-toggle="modal" data-target="#editModal">Editar</button>
 
 
-		        			 <button type="button" class="btn btn-danger btn-small" data-toggle="modal" data-target="#delModal">Excluir</button>
+		        			 <button type="button" class="btn btn-del btn-small" data-toggle="modal" data-target="#delModal">Excluir</button>
 		        			
 							
-								<!-- Modal -->
 								<div class="modal fade" id="delModal" tabindex="-1" role="dialog" aria-labelledby="delModal" aria-hidden="true">
 								  <div class="modal-dialog" role="document">
 								    <div class="modal-content">
@@ -132,11 +130,11 @@
 				</div>
 
 
-					<div class="col-sm-4">
+					<div class="col-sm-3">
 
 		        	<div class="card text-center" style="width:15rem; height:20rem;">
 
-		        		<div class="card-header text-white bg-info mb-2">
+		        		<div class="card-header text-white bg-dark mb-2">
 		        			<h4 class="text">Pastel do Mané</h4>
 		        		</div>
 		        		<div class="card-body">
@@ -150,13 +148,12 @@
 		        		</ul>
 		        		</div>
 		        		<div>
-		        			<button type="button" class="btn btn-secondary btn-small" data-toggle="modal" data-target="#editModal">Editar</button>
+		        			<button type="button" class="btn btn-edit btn-small" data-toggle="modal" data-target="#editModal">Editar</button>
 
 
-		        			 <button type="button" class="btn btn-danger btn-small" data-toggle="modal" data-target="#delModal">Excluir</button>
+		        			 <button type="button" class="btn btn-del btn-small" data-toggle="modal" data-target="#delModal">Excluir</button>
 		        			
 							
-								<!-- Modal -->
 								<div class="modal fade" id="delModal" tabindex="-1" role="dialog" aria-labelledby="delModal" aria-hidden="true">
 								  <div class="modal-dialog" role="document">
 								    <div class="modal-content">
@@ -175,19 +172,22 @@
 								      </div>
 								    </div>
 								  </div>
-								</div>
-
+							</div>
 												 
 				  		</div>
 				  	</div>
 			
+
+
+
+
 				</div>
 
 				</center>
 				<br><br>	
 	            <p>
 	            <center>
-	            <button type="button" class="btn text-white btn-success btn-lg" data-toggle="modal" data-target="#cadModal">CADASTRAR NOVO FOOD TRUCK</button>
+	            <button type="button" class="btn text-white btn-cad btn-lg" data-toggle="modal" data-target="#cadModal">CADASTRAR NOVO FOOD TRUCK</button>
 	        	</p>
 	    
 	             <div class="modal fade" id="cadModal" tabindex="-1" role="dialog" aria-labelledby="cadModalLabel">

@@ -6,7 +6,7 @@ function login(){
 
 
 
-  if (email !== "adm@ftmanager.com" && password !== "1234"){
+  if (email !== "adm@ftmanager.com" || password !== "1234"){
 
     var splitEmail = localStorage.getItem("emailArray").split(",");
     var splitPassword = localStorage.getItem("passwordArray").split(",");

@@ -8,9 +8,6 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <!-- Custom fonts for this template-->
-  <link href="libs/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-
   <!-- Custom styles for this template-->
   <link href="css/main.css" rel="stylesheet">
   <link href="css/personal.css" rel="stylesheet">
@@ -33,28 +30,28 @@
   <div id="wrapper">
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="index.html">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="foodtruck-manager.html">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Food Trucks</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="product-manager.html">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Produtos</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Relatórios</span></a>
-        </li>
-      </ul>
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="foodtruck-manager.html">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Food Trucks</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="product-manager.html">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Produtos</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="charts.html">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Relatórios</span></a>
+      </li>
+    </ul>
 
     <div id="content-wrapper">
       <div class="container-fluid">
@@ -71,96 +68,120 @@
             <i class="fas fa-table"></i> Cadastro de Food Trucks </div>
           <div class="card-body">
 
-					<div class="text col-sm-5">
-		        <h5><strong>Número de food trucks cadastrados: 4</strong></h5><br>
-		    </div>
-	        
-	        <center>
+            <div class="text col-sm-5">
+              <h5><strong>Número de food trucks cadastrados:<span id="quantidadeFoodtrucks"></span></strong></h5><br>
+            </div>
 
-	        <div class="row mb-4">
+            <center>
 
-	    	<div id="listFoodtruck">
-	    		
-	    	</div>
+              <div class="row mb-4" id="listFoodtruck">
+              </div>
+
+            </center>
+            <br><br>
+            <p>
+              <center>
+                <button type="button" class="btn text-white btn-primary btn-lg" data-toggle="modal"
+                  data-target="#cadModal">CADASTRAR NOVO FOOD TRUCK</button>
+            </p>
+
+            <div class="modal fade" id="cadModal" tabindex="-1" role="dialog" aria-labelledby="cadModalLabel">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true"></span></button>
+                    <h4 class="modal-title" id="cadModalLabel">Cadastrando/Editando Food Truck</h4>
+                  </div>
+                  <div class="modal-body">
+                    <form name="formulario" method="post">
+
+                      <input type="hidden" id="codigo_foodtruck"/>
+                      <input type="hidden" id="position_foodtruck_array"/>
+
+                      <p>
+                        Nome da unidade Food Truck: <input type="text" id="nome_foodtruck" size="50" maxlength="30"
+                          placeHolder="Digite o nome"><br><br>
+                        Data de entrada no Food Park: <input type="date" id="data"><br><br>
+                      </p>
+
+                      <p>
+                        Nome do(a) responsável pelo Food Truck: <input type="text" id="responsavel" size="50"
+                          maxlength="50" placeHolder="Digite o nome completo"><br><br>
+                        Telefone: <input type="text" id="telefone" size="50" maxlength="30"
+                          placeholder="(00) 00000-0000"><br><br>
+                        Login: <input type="text" id="login" size="50" maxlength="30"
+                          placeholder="foodtruck@ftmanager.com"><br><br>
+                        Senha: <input type="password" id="senha" size="50" maxlength="30"
+                          placeholder="Senha padrão"><br><br>
+                      </p>
 
 
 
-				</div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    <button type="button" id="save" class="btn btn-primary" onclick="javascript:createOrEditFoodtruck();">Salvar
+                      Dados</button>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-				</center>
-				<br><br>	
-	            <p>
-	            <center>
-	            <button type="button" class="btn text-white btn-primary btn-lg" data-toggle="modal" data-target="#cadModal">CADASTRAR NOVO FOOD TRUCK</button>
-	        	</p>
-	    
-	             <div class="modal fade" id="cadModal" tabindex="-1" role="dialog" aria-labelledby="cadModalLabel">
-	                <div class="modal-dialog modal-lg" role="document">
-	                <div class="modal-content">
-	                    <div class="modal-header">
-	                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
-	                    <h4 class="modal-title" id="cadModalLabel">Cadastrando Food Truck</h4>
-	                    </div>
-	                    <div class="modal-body">
-	                            <form name="formulario" method="post" onsubmit="return processar('myTable')">
-														
-									<p>
-									Nome da unidade Food Truck:  <input type="text" id="nome_foodtruck" size="50" maxlength="30" placeHolder="Digite o nome"><br><br>
-									Código da unidade Food Truck:  <input type="number" id="codigo_foodtruck" min="1" max="20"><br><br>
-									Data de entrada no Food Park:  <input type="date" id="data"><br><br>
-									</p>
-										
-									<p>
-									Nome do(a) responsável pelo Food Truck:  <input type="text" id="responsavel" size="50" maxlength="50" placeHolder="Digite o nome completo"><br><br>
-									Telefone:  <input type="text" id="telefone" size="50" maxlength="30" placeholder="(00) 00000-0000"><br><br>
-									Login:  <input type="text" id="login" size="50" maxlength="30"placeholder="foodtruck@ftmanager.com"><br><br>
-									Senha:  <input type="password" id="senha" size="50" maxlength="30" placeholder="Senha padrão"><br><br>	
-									</p>
-										
-	                                   
-	                    
-	                             </form>
-	                    </div>
-	                    <div class="modal-footer">
-	                    <button type="button" class="btn btn-default" data-dismiss="modal" >Fechar</button>
-	                    <button type="button" class="btn btn-primary">Salvar Dados</button>
-	                    </div>
-	                </div>
-	                </div>
-	            </div>
-			
+            <div class="modal" tabindex="-1" role="dialog" id="delModal">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Excluir foodtruck</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <input type="hidden" id="position_foodtruck_array_delete"/>
+                    <p>Deseja realmente exluir este foodtruck?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                    <button type="button" class="btn btn-primary" onclick="javascript:deleteFoodtruck();">Sim</button>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-		    </div>	
-	      
-			
-			
 
-	       
-
-        </center>
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   
           </div>
-        </div>
 
+
+
+
+
+
+          </center>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+
+  <!-- Sticky Footer -->
+  <footer class="sticky-footer">
+    <div class="container my-auto">
+      <div class="copyright text-center my-auto">
+        <span>Copyright © Food Truck Manager 2019</span>
       </div>
     </div>
-    <!-- /.container-fluid -->
-
-    <!-- Sticky Footer -->
-    <footer class="sticky-footer">
-      <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-          <span>Copyright © Food Truck Manager 2019</span>
-        </div>
-      </div>
-    </footer>
+  </footer>
   </div>
   <!-- /.content-wrapper -->
   </div>
@@ -171,30 +192,20 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+
+  <script src="js/classes.js"></script>
   <script src="js/foodtruck-manager.js"></script>
 
-   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-  <!-- Bootstrap core JavaScript-->
-  <script src="libs/jquery/jquery.min.js"></script>
-  <script src="libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="libs/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Page level plugin JavaScript-->
-  <script src="libs/chart.js/Chart.min.js"></script>
-  <script src="libs/datatables/jquery.dataTables.js"></script>
-  <script src="libs/datatables/dataTables.bootstrap4.js"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin.min.js"></script>
-
-  <!-- Demo scripts for this page-->
-  <script src="js/demo/datatables-demo.js"></script>
-  <script src="js/demo/chart-area-demo.js"></script>
 </body>
 
 </html>

@@ -11,3 +11,12 @@
 {
     padding:20px; 
 }
+.btnCard
+{
+    margin: 10px auto 30px auto;
+}
+
+.btnCard .btn
+{
+    margin-right: 10px;
+}

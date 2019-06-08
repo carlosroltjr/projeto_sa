@@ -94,7 +94,7 @@ function getEditFoodtruck(id) {
 
 
 function createOrEditFoodtruck() {
-    if ($("#codigo_foodtruck").val() !== null) { saveEditFoodtruck(); }
+    if ($("#codigo_foodtruck").val() !== "") { saveEditFoodtruck(); }
     else { createFoodtruck(); }
 }
 

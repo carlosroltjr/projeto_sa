@@ -27,6 +27,7 @@ function login(){
     }
   } else{
     alert("Logando como Admin...");
+    localStorage.setItem("logged", true);
     window.open('index.html', '_self');
   }
 }

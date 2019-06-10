@@ -70,48 +70,70 @@
           <div class="card-header">
             <i class="fas fa-table"></i> Cadastro de Produtos</div>
           <div class="card-body">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn text-white btn-primary btn-lg" data-toggle="modal" data-target="#prodModal">
+              Cadastrar Produto
+            </button>
+            
+            <!--Modal-->
 
-            <form name="formulario" method="post" onsubmit="return processar('myTable')">
+            <div class="modal fade" id="prodModal" tabindex="-1"
+            role="dialog" aria-labelledby="prodModalLabel">
+              <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                  <!--Modal Header-->
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="prodModalLabel">Cadastrar Produto</h4>  
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      
+                  </div>
+                  <!--Modal Body-->
+                  <div class="modal-body">
 
-              <div class="form-group">
-                <div class="form-label-group">
-                  <input type="text" id="productName" class="form-control" placeholder="Produto:" required="required"
-                    autofocus="autofocus">
-                  <label for="productName">Produto:</label>
-                </div>
+                      <form name="formulario" method="post">
+                          
+                          <input type="hidden" id="id_Product">
+                          <input type="hidden" id="position_Product_Array">
+                          
+                          <p>
+                          Produto: <input type="text" id="productName" placeholder="Nome do Produto"> 
+                          </p>
+                          
+                          <p>
+                              Tipo de Produto:
+                              <select id="productType">
+                                <option value="Comida">Comida</option>
+                                <option value="Bebida">Bebida</option>
+                                <option value="Outros">Outros</option>
+                              </select>
+                          </p>
+                          <p>
+                              Preço Unitário (R$):
+                              <input type="text" id="productPrice" placeholder="Valor Unitário (R$)">
+                              
+                          </p>
+                          <p>
+                            
+                            Produtos em Estoque:
+                              <input type="number" id="productStock" placeholder="Produtos em Estoque">
+                          </p>
+            
+                        </form>
+
+                  </div>
+                  <!--Modal Footer-->
+                  <div class="modal-footer">
+
+                      <button type="button" class="btn btn-default" data-dismiss="modal" >Fechar</button>
+                      <button type="button" id="save" class="btn btn-primary" onclick="javascript:insertProduct();">Inserir Produto</button>
+
+                  </div>
+
               </div>
-
-              <div class="form-group">
-                <label>Tipo:</label>
-                <div class="form-label-group">
-                  <select class="form-control" id="type" name="productType">
-                    <option value="Comida">Comida</option>
-                    <option value="Bebida">Bebida</option>
-                    <option value="Outros">Outros</option>
-                  </select>
-
-                </div>
               </div>
+            </div>
 
-              <div class="form-group">
-                <div class="form-label-group">
-                  <input type="text" id="productPrice" class="form-control" placeholder="Preço:" required="required"
-                    autofocus="autofocus">
-                  <label for="productPrice">Preço:</label>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <div class="form-label-group">
-                  <input type="text" id="productStock" class="form-control" placeholder="Estoque:" required="required"
-                    autofocus="autofocus">
-                  <label for="productStock">Estoque:</label>
-                </div>
-              </div>
-
-              <input class="btn btn-primary" type="submit" value="Salvar">
-
-            </form>
+            
           </div>
         </div>
 
@@ -169,26 +191,19 @@
   </a>
 
 
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+  crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+  crossorigin="anonymous"></script>
+
+
+  <script src="js/classes.js"></script>
   <script src="js/product-manager.js"></script>
-
-  <!-- Bootstrap core JavaScript-->
-  <script src="libs/jquery/jquery.min.js"></script>
-  <script src="libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="libs/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Page level plugin JavaScript-->
-  <script src="libs/chart.js/Chart.min.js"></script>
-  <script src="libs/datatables/jquery.dataTables.js"></script>
-  <script src="libs/datatables/dataTables.bootstrap4.js"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin.min.js"></script>
-
-  <!-- Demo scripts for this page-->
-  <script src="js/demo/datatables-demo.js"></script>
-  <script src="js/demo/chart-area-demo.js"></script>
 </body>
 
 </html>

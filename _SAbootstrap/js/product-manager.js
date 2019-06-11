@@ -1,11 +1,12 @@
 class Product {
-    constructor (id_Product, productName, productType,productPrice, productStock){
+    constructor (id_Product, productName, productType,productPrice, productStock, codigo_foodtruck){
         this.id_Product = id_Product;
         this.productName = productName;
         this.productType = productType;
         this.productPrice = productPrice;
         this.productStock = productStock;
         this.vendas = [];
+        this.codigo_foodtruck = codigo_foodtruck; 
     }
 
 }  
@@ -29,7 +30,7 @@ function listProduct(){
     var html = "";
 
     for (var i=0; i<listProductLocalStorage.length; i++) {
-        html += '<tr>' + '<th>'+listProductLocalStorage[i].id_product+'</th>' + '<th>'+listProductLocalStorage[i].productName+'</th>'+ '<th>'+listProductLocalStorage[i].productType+'</th>'+ '<th>'+listProductLocalStorage[i].productPrice+'</th>'+ '<th>'+listProductLocalStorage[i].productStock+'</th>'+ '<th>'+'<button type="button" class="btn btn-secondary btn-small" onclick="javascript:getEditProduct(' + i + ')">Editar</button>' +'</th>' + '<th>'+ '<button type="button" class="btn btn-danger btn-small" onclick="javascript:getDelFoodtruck(' + i + ')">Excluir</button><br>' +'</th>'+ '</tr>';
+        html += '<tr>' + '<th>'+listProductLocalStorage[i].id_Product+'</th>' + '<th>'+listProductLocalStorage[i].productName+'</th>'+ '<th>'+listProductLocalStorage[i].productType+'</th>'+ '<th>'+listProductLocalStorage[i].productPrice+'</th>'+ '<th>'+listProductLocalStorage[i].productStock+'</th>'+ '<th>'+'<button type="button" class="btn btn-secondary btn-small" onclick="javascript:getEditProduct(' + i + ')">Editar</button>' +'</th>' + '<th>'+ '<button type="button" class="btn btn-danger btn-small" onclick="javascript:getDelProduct(' + i + ')">Excluir</button><br>' +'</th>'+ '</tr>';
     }
 
     $("#listProduct").append(html);
@@ -39,7 +40,7 @@ function listProduct(){
 
 function insertProduct(){
     //salvando produto no localstorage
-    listProductLocalStorage = JSON.parse(localStorage.getItem('product'));
+    //listProductLocalStorage = JSON.parse(localStorage.getItem('product'));
 
     if(listProductLocalStorage == null) {
         listProductLocalStorage = [];
@@ -56,7 +57,7 @@ function insertProduct(){
 
     var listProductSetLocalStorage = JSON.stringify(listProductLocalStorage);
 
-    localStorage.setItem('foodtruck', listProductSetLocalStorage);
+    localStorage.setItem('product', listProductSetLocalStorage);
 
     alert("Produto inserido com sucesso");
 
@@ -84,7 +85,7 @@ function createEditProduct(){
     if ($("#id_product").val() !== "") {
         saveEditProduct();
     } else { 
-        inserProduct();
+        insertProduct();
     }
 }
 
@@ -119,7 +120,7 @@ function deleteProduct(){
 
     var listProductSetLocalStorage = JSON.stringify(listProductLocalStorage);
 
-    localStorage.setItem('foodtruck', listProductSetLocalStorage);
+    localStorage.setItem('product', listProductSetLocalStorage);
 
     alert("Exclusão Realizada com Sucesso");
 

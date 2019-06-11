@@ -54,6 +54,11 @@
           <i class="fas fa-fw fa-table"></i>
           <span>Relatórios</span></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="login.html">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Sair</span></a>
+      </li>
     </ul>
 
     <div id="content-wrapper">
@@ -74,7 +79,7 @@
             <button type="button" class="btn text-white btn-primary btn-lg" data-toggle="modal" data-target="#prodModal">
               Cadastrar Produto
             </button>
-            
+
             <!--Modal-->
 
             <div class="modal fade" id="prodModal" tabindex="-1"
@@ -83,22 +88,22 @@
               <div class="modal-content">
                   <!--Modal Header-->
                   <div class="modal-header">
-                    <h4 class="modal-title" id="prodModalLabel">Cadastrar Produto</h4>  
+                    <h4 class="modal-title" id="prodModalLabel">Cadastrar Produto</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      
+
                   </div>
                   <!--Modal Body-->
                   <div class="modal-body">
 
                       <form name="formulario" method="post">
-                          
+
                           <input type="hidden" id="id_Product">
                           <input type="hidden" id="position_Product_Array">
-                          
+
                           <p>
-                          Produto: <input type="text" id="productName" placeholder="Nome do Produto"> 
+                          Produto: <input type="text" id="productName" placeholder="Nome do Produto">
                           </p>
-                          
+
                           <p>
                               Tipo de Produto:
                               <select id="productType">
@@ -110,14 +115,14 @@
                           <p>
                               Preço Unitário (R$):
                               <input type="text" id="productPrice" placeholder="Valor Unitário (R$)">
-                              
+
                           </p>
                           <p>
-                            
+
                             Produtos em Estoque:
                               <input type="number" id="productStock" placeholder="Produtos em Estoque">
                           </p>
-            
+
                         </form>
 
                   </div>
@@ -133,7 +138,7 @@
               </div>
             </div>
 
-            
+
           </div>
         </div>
 

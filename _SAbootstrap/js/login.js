@@ -4,30 +4,20 @@ function login(){
   var email = document.getElementById('email').value;
   var password = document.getElementById('password').value;
 
-
+  var listaFoodtrucks = JSON.parse(localStorage.getItem("foodtruck"));
 
   if (email !== "adm@ftmanager.com" || password !== "1234"){
 
-    var splitEmail = localStorage.getItem("emailArray").split(",");
-    var splitPassword = localStorage.getItem("passwordArray").split(",");
-
-    var logged = false;
-
-    for (i=0; i<splitEmail.length; i++){
-
-      if (email == splitEmail[i] && password == splitPassword[i]){
-        alert("Logado com sucesso!");
-        window.open('dashboard.html', '_self');
-        logged = true;
-      }
-    }
-
-    if(logged == false){
-      alert("E-mail e/ou senha inválidos!");
+    for (i=0; i<listaFoodtrucks.length; i++){
+      if (email === listaFoodtrucks[i].login && password === listaFoodtrucks[i].senha){
+         alert("Logado com sucesso!");
+         window.open('index.html', '_self');
+       }
+       else alert("E-mail e/ou senha inválidos!");
     }
   } else{
+    var logged = true;
     alert("Logando como Admin...");
-    localStorage.setItem("logged", true);
     window.open('index.html', '_self');
   }
 }

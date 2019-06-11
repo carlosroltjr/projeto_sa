@@ -15,6 +15,25 @@ listProduct();
 
 function listProduct(){
 
+    listProductLocalStorage = JSON.parse(localStorage.getItem('product'));
+    //salvando produto no localstorage?
+    if (typeof (Storage) !== "undefined"){
+        if (listProductLocalStorage == null) {
+            listProductLocalStorage = [];
+        }
+    }
+
+    //atribuindo os produtos para as tabelas (criar elemento com quantidade de produtos?)
+    $("#quantProducts").html(listProductLocalStorage.length.toString());
+
+    var html = "";
+
+    for (var i=0; i<listProductLocalStorage.length; i++) {
+        html += '<tr>' + '<th>'+listProductLocalStorage[i].id_product+'</th>' + '<th>'+listProductLocalStorage[i].productName+'</th>'+ '<th>'+listProductLocalStorage[i].productType+'</th>'+ '<th>'+listProductLocalStorage[i].productPrice+'</th>'+ '<th>'+listProductLocalStorage[i].productStock+'</th>'+ '<th>'+'<button type="button" class="btn btn-secondary btn-small" onclick="javascript:getEditProduct(' + i + ')">Editar</button>' +'</th>' + '<th>'+ '<button type="button" class="btn btn-danger btn-small" onclick="javascript:getDelFoodtruck(' + i + ')">Excluir</button><br>' +'</th>'+ '</tr>';
+    }
+
+    $("#listProduct").append(html);
+
 }
 
 
@@ -89,9 +108,25 @@ function saveEditProduct(){
 }
 
 function getDelProduct(){
-
+    $("#position_Product_Array_delete").val(id);
+    $('#delModal').modal('show');
 }
 
 function deleteProduct(){
+
+    //remove item do array
+    listProductLocalStorage.splice($("#position_Product_Array_delete").val(), 1);
+
+    var listProductSetLocalStorage = JSON.stringify(listProductLocalStorage);
+
+    localStorage.setItem('foodtruck', listProductSetLocalStorage);
+
+    alert("Exclusão Realizada com Sucesso");
+
+    $("#position_Product_Array_delete").val(null);
+
+    //recarrega a pagina
+    location.reload();
+
 
 }

@@ -1,23 +1,37 @@
 
 function login(){
 
-  var email = document.getElementById('email').value;
-  var password = document.getElementById('password').value;
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
+  var logged, checkAdmin;
 
-  var listaFoodtrucks = JSON.parse(localStorage.getItem("foodtruck"));
+  if (localStorage.length > 0){
 
-  if (email !== "adm@ftmanager.com" || password !== "1234"){
+    var listaFoodtrucks = JSON.parse(localStorage.getItem("foodtruck"));
 
-    for (i=0; i<listaFoodtrucks.length; i++){
-      if (email === listaFoodtrucks[i].login && password === listaFoodtrucks[i].senha){
-         alert("Logado com sucesso!");
-         window.open('index.html', '_self');
-       }
-       else alert("E-mail e/ou senha inválidos!");
+    if (email !== "adm@ftmanager.com" || password !== "1234"){
+
+      for (i=0; i<listaFoodtrucks.length; i++){
+          if (email === listaFoodtrucks[i].login && password === listaFoodtrucks[i].senha){
+            logged = true;
+            alert("Logado com sucesso!");
+            window.open('index.html', '_self');
+          }
+      }
+    } else if (email === "adm@ftmanager.com" && password === "1234") {
+      logged = true;
+      checkAdmin = true;
+      alert("Logando como Admin...");
+      window.open('index.html', '_self');
     }
-  } else{
-    var logged = true;
+
+    if (logged !== true) alert("E-mail e/ou senha inválidos!");
+
+  } else if (email === "adm@ftmanager.com" && password === "1234") {
+    logged = true;
     alert("Logando como Admin...");
     window.open('index.html', '_self');
   }
+  else  alert("Ainda não existem Food Trucks cadastrados!\nFavor entrar em contato com o Administrador...");
+
 }

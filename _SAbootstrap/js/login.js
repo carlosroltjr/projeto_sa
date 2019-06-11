@@ -3,7 +3,7 @@ function login(){
 
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
-  var logged, checkAdmin;
+  var logged;
 
   if (localStorage.length > 0){
 
@@ -15,13 +15,14 @@ function login(){
           if (email === listaFoodtrucks[i].login && password === listaFoodtrucks[i].senha){
             logged = true;
             alert("Logado com sucesso!");
+            localStorage.setItem("checkAdmin", false);
             window.open('index.html', '_self');
           }
       }
     } else if (email === "adm@ftmanager.com" && password === "1234") {
       logged = true;
-      checkAdmin = true;
       alert("Logando como Admin...");
+      localStorage.setItem("checkAdmin", true);
       window.open('index.html', '_self');
     }
 
@@ -30,6 +31,7 @@ function login(){
   } else if (email === "adm@ftmanager.com" && password === "1234") {
     logged = true;
     alert("Logando como Admin...");
+    localStorage.setItem("checkAdmin", true);
     window.open('index.html', '_self');
   }
   else  alert("Ainda não existem Food Trucks cadastrados!\nFavor entrar em contato com o Administrador...");

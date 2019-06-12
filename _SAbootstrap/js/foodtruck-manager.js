@@ -58,7 +58,10 @@ function createFoodtruck() {
     }
 
     //atribuindo o id de forma automatica - vai sempre ser o max + 1
-    var nextId = foodtrucklist.length + 1;
+    var nextId = localStorage.codigo;
+
+    if(localStorage.codigo){localStorage.codigo=Number(localStorage.codigo)+1;}
+    else{  localStorage.setItem("codigo", 1);}
 
     //recuperar os dados do formulario
     var foodtruck = new Foodtruck(nextId, $("#nome_foodtruck").val(), $("#responsavel").val(), $("#data").val(), $("#telefone").val(), $("#login").val(), $("#senha").val());
@@ -94,8 +97,10 @@ function getEditFoodtruck(id) {
 
 
 function createOrEditFoodtruck() {
-    if ($("#codigo_foodtruck").val() !== "") { saveEditFoodtruck(); }
-    else { createFoodtruck(); }
+
+  if ($("#codigo_foodtruck").val() !== "") { saveEditFoodtruck(); }
+  else { createFoodtruck(); }
+
 }
 
 

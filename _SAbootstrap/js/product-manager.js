@@ -6,10 +6,10 @@ class Product {
         this.productPrice = productPrice;
         this.productStock = productStock;
         this.vendas = [];
-        this.codigo_foodtruck = codigo_foodtruck; 
+        this.codigo_foodtruck = codigo_foodtruck;
     }
 
-}  
+}
 
 var listProductLocalStorage = [];
 listProduct();
@@ -29,7 +29,7 @@ function listProduct(){
 
     var html = "";
 
-    for (var i=0; i<listProductLocalStorage.length; i++) {
+    for (var i=1; i<listProductLocalStorage.length; i++) {
         html += '<tr>' + '<th>'+listProductLocalStorage[i].id_Product+'</th>' + '<th>'+listProductLocalStorage[i].productName+'</th>'+ '<th>'+listProductLocalStorage[i].productType+'</th>'+ '<th>'+listProductLocalStorage[i].productPrice+'</th>'+ '<th>'+listProductLocalStorage[i].productStock+'</th>'+ '<th>'+'<button type="button" class="btn btn-secondary btn-small" onclick="javascript:getEditProduct(' + i + ')">Editar</button>' +'</th>' + '<th>'+ '<button type="button" class="btn btn-danger btn-small" onclick="javascript:getDelProduct(' + i + ')">Excluir</button><br>' +'</th>'+ '</tr>';
     }
 
@@ -66,12 +66,12 @@ function insertProduct(){
 
 }
 
-function getEditProduct(idProduct){
+function getEditProduct(id_Product){
 
-    var productEdit = listProductLocalStorage[id];
+    var productEdit = listProductLocalStorage[id_Product];
 
     $("#id_Product").val(productEdit.id_Product);
-    $("#position_Product_Array").val(id);
+    $("#position_Product_Array").val(id_Product);
     $("#productName").val(productEdit.productName);
     $("#productType").val(productEdit.productType);
     $("#productPrice").val(productEdit.productPrice);
@@ -84,14 +84,14 @@ function getEditProduct(idProduct){
 function createEditProduct(){
     if ($("#id_product").val() !== "") {
         saveEditProduct();
-    } else { 
+    } else {
         insertProduct();
     }
 }
 
 function saveEditProduct(){
 
-    var productEdited = new Product ($("#productId").val(), $("#productName").val(), $("#productType").val(), $("#productPrice").val(), $("#productStock").val());
+    var productEdited = new Product ($("#id_Product").val(), $("#productName").val(), $("#productType").val(), $("#productPrice").val(), $("#productStock").val());
 
     listProductLocalStorage[$("#position_Product_Array").va()] = productEdited;
 
@@ -109,7 +109,7 @@ function saveEditProduct(){
 }
 
 function getDelProduct(){
-    $("#position_Product_Array_delete").val(id);
+    $("#position_Product_Array_delete").val(id_Product);
     $('#delModal').modal('show');
 }
 

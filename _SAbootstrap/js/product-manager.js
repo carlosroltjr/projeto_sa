@@ -1,16 +1,3 @@
-class Product {
-    constructor (id_Product, productName, productType,productPrice, productStock, codigo_foodtruck){
-        this.id_Product = id_Product;
-        this.productName = productName;
-        this.productType = productType;
-        this.productPrice = productPrice;
-        this.productStock = productStock;
-        this.vendas = [];
-        this.codigo_foodtruck = codigo_foodtruck;
-    }
-
-}
-
 var listProductLocalStorage = [];
 listProduct();
 
@@ -29,7 +16,7 @@ function listProduct(){
 
     var html = "";
 
-    for (var i=1; i<listProductLocalStorage.length; i++) {
+    for (var i=0; i<listProductLocalStorage.length; i++) {
         html += '<tr>' + '<th>'+listProductLocalStorage[i].id_Product+'</th>' + '<th>'+listProductLocalStorage[i].productName+'</th>'+ '<th>'+listProductLocalStorage[i].productType+'</th>'+ '<th>'+listProductLocalStorage[i].productPrice+'</th>'+ '<th>'+listProductLocalStorage[i].productStock+'</th>'+ '<th>'+'<button type="button" class="btn btn-secondary btn-small" onclick="javascript:getEditProduct(' + i + ')">Editar</button>' +'</th>' + '<th>'+ '<button type="button" class="btn btn-danger btn-small" onclick="javascript:getDelProduct(' + i + ')">Excluir</button><br>' +'</th>'+ '</tr>';
     }
 
@@ -40,7 +27,7 @@ function listProduct(){
 
 function insertProduct(){
     //salvando produto no localstorage
-    //listProductLocalStorage = JSON.parse(localStorage.getItem('product'));
+    listProductLocalStorage = JSON.parse(localStorage.getItem('product'));
 
     if(listProductLocalStorage == null) {
         listProductLocalStorage = [];
@@ -49,6 +36,9 @@ function insertProduct(){
     //atribuindo id automaticamente
 
     var nextId = listProductLocalStorage.length +1;
+
+    /*if(localStorage.id_Product){localStorage.id_Product=Number(localStorage.id_Product)+1;}
+    else{  localStorage.setItem("id_Product", 1);} */
 
     //recuperar dados no formulário
     var product = new Product(nextId, $("#productName").val(), $("#productType").val(), $("#productPrice").val(), $("#productStock").val());
@@ -82,7 +72,7 @@ function getEditProduct(id_Product){
 }
 
 function createEditProduct(){
-    if ($("#id_product").val() !== "") {
+    if ($("#id_Product").val() !== "") {
         saveEditProduct();
     } else {
         insertProduct();
@@ -93,14 +83,16 @@ function saveEditProduct(){
 
     var productEdited = new Product ($("#id_Product").val(), $("#productName").val(), $("#productType").val(), $("#productPrice").val(), $("#productStock").val());
 
-    listProductLocalStorage[$("#position_Product_Array").va()] = productEdited;
+    listProductLocalStorage[$("#position_Product_Array").val()] = productEdited;
+
+    var listProductSetLocalStorage = JSON.stringify(listProductLocalStorage);
 
     localStorage.setItem('product', listProductSetLocalStorage);
 
     alert("Produto editado com sucesso.")
 
     //resetando valores
-    $("#productId").val(null);
+    $("#id_Product").val(null);
     $("#position_Product_Array").val(null);
 
     //recarrega a pagina
@@ -108,7 +100,7 @@ function saveEditProduct(){
 
 }
 
-function getDelProduct(){
+function getDelProduct(id_Product){
     $("#position_Product_Array_delete").val(id_Product);
     $('#delModal').modal('show');
 }

@@ -10,3 +10,16 @@ class Foodtruck {
       this.produtos = [];
     }
   }
+
+  class Product {
+    constructor (id_Product, productName, productType,productPrice, productStock, codigo_foodtruck){
+        this.id_Product = id_Product;
+        this.productName = productName;
+        this.productType = productType;
+        this.productPrice = productPrice;
+        this.productStock = productStock;
+        this.vendas = [];
+        this.codigo_foodtruck = codigo_foodtruck;
+    }
+
+}

@@ -130,8 +130,32 @@
                   <div class="modal-footer">
 
                       <button type="button" class="btn btn-default" data-dismiss="modal" >Fechar</button>
-                      <button type="button" id="save" class="btn btn-primary" onclick="javascript:insertProduct();">Inserir Produto</button>
+                      <button type="button" id="save" class="btn btn-primary" onclick="javascript:createEditProduct();">Salvar Produto</button>
 
+                  </div>
+
+                  <div class="modal" tabindex="-1" role="dialog" id="delModal">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <!--Modal Header-->
+                        <div class="modal-header">
+                          <h5 class="modal-title">Excluir produto</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <!--Modal Body-->
+                        <div class="modal-body">
+                          <input type="hidden" id="position_Product_Array_delete"/>
+                          <p>Deseja realmente exluir este produto?</p>
+                        </div>
+                        <!--Modal Footer-->
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                          <button type="button" class="btn btn-primary" onclick="javascript:deleteProduct();">Sim</button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
               </div>

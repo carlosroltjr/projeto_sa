@@ -1,4 +1,6 @@
 
+localStorage.removeItem("checkAdmin");
+
 function login(){
 
   var email = document.getElementById("email").value;

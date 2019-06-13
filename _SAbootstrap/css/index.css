@@ -1,0 +1,10 @@
+.icone{      /*classe rede: tudo que for rede ..*/
+    transition: all 0.4s ease-out;
+    border-radius: 50%;
+    background-color: transparent;
+  }
+.icone:hover{
+    cursor: pointer;
+    transform: translateY(-20px);
+    box-shadow: 10px 30px 16px 0px rgba(70,70,70, 0.45);
+  }

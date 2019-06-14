@@ -1,5 +1,6 @@
 
 localStorage.removeItem("checkAdmin");
+localStorage.removeItem("logged");
 
 function login(){
 
@@ -15,15 +16,17 @@ function login(){
 
       for (i=0; i<listaFoodtrucks.length; i++){
           if (email === listaFoodtrucks[i].login && password === listaFoodtrucks[i].senha){
-            logged = true;
             alert("Logado com sucesso!");
+            logged = true;
+            localStorage.setItem("logged", true);
             localStorage.setItem("checkAdmin", false);
             window.open('index.html', '_self');
           }
       }
     } else if (email === "adm@ftmanager.com" && password === "1234") {
-      logged = true;
       alert("Logando como Admin...");
+      logged = true;
+      localStorage.setItem("logged", true);
       localStorage.setItem("checkAdmin", true);
       window.open('index.html', '_self');
     }
@@ -31,8 +34,9 @@ function login(){
     if (logged !== true) alert("E-mail e/ou senha inválidos!");
 
   } else if (email === "adm@ftmanager.com" && password === "1234") {
-    logged = true;
     alert("Logando como Admin...");
+    logged = true;
+    localStorage.setItem("logged", true);
     localStorage.setItem("checkAdmin", true);
     window.open('index.html', '_self');
   }

@@ -7,19 +7,29 @@ class Foodtruck {
       this.telefone = telefone;
       this.login = login;
       this.senha = senha;
-      this.produtos = [];
+      this.product = [];
     }
   }
 
-  class Product {
-    constructor (id_Product, productName, productType,productPrice, productStock, codigo_foodtruck){
-        this.id_Product = id_Product;
-        this.productName = productName;
-        this.productType = productType;
-        this.productPrice = productPrice;
-        this.productStock = productStock;
-        this.vendas = [];
-        this.codigo_foodtruck = codigo_foodtruck;
-    }
+class Product {
+  constructor (id_Product, productName, productType,productPrice, productStock, codigo_foodtruck){
+      this.id_Product = id_Product;
+      this.productName = productName;
+      this.productType = productType;
+      this.productPrice = productPrice;
+      this.productStock = productStock;
+      this.vendas = [];
+      this.codigo_foodtruck = codigo_foodtruck;
+  }
 
+}
+
+class Vendas {
+  constructor (idSales, dateSale, valueSale ){
+    this.idSales = idSales;
+    this.dateSale = dateSale;
+    this.valueSale = valueSale;
+    this.codigo_foodtruck = codigo_foodtruck;
+    this.id_Product = id_Product;
+  }
 }

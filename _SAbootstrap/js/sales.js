@@ -1,4 +1,5 @@
 //Produtos à venda
+var listSalesLocalStorage = [];
 salesProductsList();
 
 function salesProductsList(){
@@ -19,9 +20,13 @@ function salesProductsList(){
     $("#listSales").append(html);
 }
 
-function getSales() {
-    var venda = "";
-    venda = listProductLocalStorage[i].productPrice * $("#qtdeOrder.value").val();
+function getSales(id_Product) {
+    
+    var venda = new Venda (nextId, saleDate, $("#productName").val(), $("#productType").val(), $("#productPrice").val(),)
+    
+    listSalesLocalStorage.push(venda);
+
+    //= listSalesLocalStorage[i].productPrice * $("#qtdeOrder.value").val();
 }
 
 function saveSales() {

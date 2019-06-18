@@ -25,21 +25,41 @@ function getSales(id_Product) {
 
     var htmlSales = "";
     var pedido = document.getElementById("qtdeOrder"+(id_Product-1)).value;
-    var produto = document.getElementById("")
-    console.log (pedido);
-    console.log (listProductLocalStorage[id_Product-1].productPrice);
-    console.log (id_Product);
+    var somaPedido = 0; 
+    somaPedido += (listProductLocalStorage[id_Product-1].productPrice*pedido); 
 
-    htmlSales += '<div class = "col-sm-3">'+'<div class = "card text-center" style = "width:15rem;height:25rem;">'+ '<div class="card-header text-white bg-dark mb-2">'+'<h4 class="text">'+'Informações da Venda'+'</h4>' +
-    '</div>' + '<div class="card-body">'+'<h6 class="card-subtitle mb-3 text-muted">'+(listProductLocalStorage[id_Product-1].productPrice*pedido) + '</h6>'+ '<div class="btnCard">' +
-    '<button type="button" class="btn btn-secondary btn-small" onclick="javascript:saveSales(' + id_Product + ')">Confirmar Venda</button>'+'</div>' +
-    '</div>' +
-    '</div>' +
-    '</div>';
+    if (htmlSales ===""){
+        htmlSales += '<div class = "col-sm-3">'+
+        '<div class = "card text-center" style = "width:15rem;height:15rem;">'+ 
+        '<div class="card-header text-white bg-dark mb-2">'+
+        '<h4 class="text">'+
+        'Informações da Venda'+
+        '</h4>' +
+        '</div>' + 
+        '<div class="card-body">'+'<h6 class="card-subtitle mb-3 text-muted">'+
+        'R$'+somaPedido + '</h6>'+ '<div class="btnCard">' +
+        '<button type="button" class="btn btn-secondary btn-small" onclick="javascript:saveSales(' + id_Product + ')">Confirmar Venda</button>'+'</div>' +
+        '</div>' +
+        '</div>' +
+        '</div>';
     
 
     $("#confirmSale").append(htmlSales);
-
+    } else {
+        htmlSales += '<div class = "col-sm-3">'+
+        '<div class = "card text-center" style = "width:15rem;height:15rem;">'+ 
+        '<div class="card-header text-white bg-dark mb-2">'+
+        '<h4 class="text">'+
+        'Informações da Venda'+
+        '</h4>' +
+        '</div>' + 
+        '<div class="card-body">'+'<h6 class="card-subtitle mb-3 text-muted">'+
+        'R$'+somaPedido + '</h6>'+ '<div class="btnCard">' +
+        '<button type="button" class="btn btn-secondary btn-small" onclick="javascript:saveSales(' + id_Product + ')">Confirmar Venda</button>'+'</div>' +
+        '</div>' +
+        '</div>' +
+        '</div>';
+    }
     
    
 }

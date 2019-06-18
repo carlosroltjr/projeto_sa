@@ -9,7 +9,7 @@
   <meta name="author" content="" />
 
   <!-- Custom fonts for this template-->
-  <link href="libs/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <!--<link href="libs/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">-->
 
   <!-- Custom styles for this template-->
   <link href="css/main.css" rel="stylesheet">
@@ -140,32 +140,34 @@
                   </div>
               </div>
 
-                  <div class="modal" tabindex="-1" role="dialog" id="delModal">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <!--Modal Header-->
-                        <div class="modal-header">
-                          <h5 class="modal-title">Excluir produto</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <!--Modal Body-->
-                        <div class="modal-body">
-                          <input type="hidden" id="position_Product_Array_delete"/>
-                          <p>Deseja realmente exluir este produto?</p>
-                        </div>
-                        <!--Modal Footer-->
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-                          <button type="button" class="btn btn-primary" onclick="javascript:deleteProduct();">Sim</button>
-                        </div>
-                      </div>
+              </div>
+              </div>
+
+              <div class="modal fade" tabindex="-1" role="dialog" id="delModal">
+                <div class="modal-dialog modal-lg" role="document">
+                  <div class="modal-content">
+                    <!--Modal Header-->
+                    <div class="modal-header">
+                      <h5 class="modal-title">Excluir produto</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <!--Modal Body-->
+                    <div class="modal-body">
+                      <input type="hidden" id="position_Product_Array_delete"/>
+                      <p>Deseja realmente exluir este produto?</p>
+                    </div>
+                    <!--Modal Footer-->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                      <button type="button" class="btn btn-primary" onclick="javascript:deleteProduct();">Sim</button>
                     </div>
                   </div>
+                </div>
+              </div>
 
-              </div>
-              </div>
+
             </div>
 
 

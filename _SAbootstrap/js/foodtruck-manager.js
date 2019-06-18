@@ -46,10 +46,7 @@ function listFoodtruck() {
 }
 
 function createFoodtruck() {
-    //criar regra para validar unicidade de codigo ---> BUG
-
-
-    //salvando o foodtruck no localstorage
+        //salvando o foodtruck no localstorage
 
     foodtrucklist = JSON.parse(localStorage.getItem('foodtruck'));
 
@@ -58,8 +55,14 @@ function createFoodtruck() {
     }
 
     //atribuindo o id de forma automatica - vai sempre ser o max + 1
-    var nextId = Number(localStorage.codigo_foodtruck) + 1 || 1;
-
+    var nextId;
+    
+    if(localStorage.codigo_foodtruck){
+        nextId =Number(localStorage.codigo_foodtruck)+1;
+    }else{ 
+        nextId = 1;
+    }
+   
     localStorage.setItem("codigo_foodtruck", nextId);
 
     //recuperar os dados do formulario

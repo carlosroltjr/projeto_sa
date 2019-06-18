@@ -4,9 +4,9 @@ checkAdmin = JSON.parse(localStorage.getItem("checkAdmin"));
 
 if (isLogged){
   if (checkAdmin){
-    //desabilita botão de cadastrar produtos
+    document.getElementById('products').onclick = function(){ return false }
   } else{
-    //desabilita botão de cadastrar foodtrucks
+    document.getElementById('foodtrucks').onclick = function(){ return false }
   }
 } else{
   alert("Você não está logado!");

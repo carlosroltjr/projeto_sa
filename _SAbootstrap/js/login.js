@@ -1,6 +1,7 @@
 
 localStorage.removeItem("checkAdmin");
 localStorage.removeItem("logged");
+localStorage.removeItem("id_foodtruck_logado");
 
 function login(){
 
@@ -18,6 +19,7 @@ function login(){
           if (email === listaFoodtrucks[i].login && password === listaFoodtrucks[i].senha){
             alert("Logado com sucesso!");
             logged = true;
+            localStorage.setItem("id_foodtruck_logado", listaFoodtrucks[i].codigo_foodtruck);
             localStorage.setItem("logged", true);
             localStorage.setItem("checkAdmin", false);
             window.open('index.html', '_self');

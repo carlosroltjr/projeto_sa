@@ -126,6 +126,32 @@
 
 
             </table>
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h6>Resumo do Pedido</h6>
+                  </div>
+              <div class="row">
+              <div class="col-12 col-md-8">
+                <div class="card">
+                  <div class="card-body" >
+                    <h5 class="card-title">Produtos Selecionados:</h5>
+                    <div class="list-group" id="ordList" role="tablist"></div>                    
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Valor Total:</h5>
+                    <p>R$<input type="text" id="saleValue" style="background: #FFCC99; font-weight: bold;" name="total_val" class="input-medium focused span6 result" readonly="readonly" value="00,00"/>
+                    </p>
+                    <a href="#" class="btn btn-primary btn-small">Confirmar Venda</a>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
             <div class="card" id="confirmSale"></div>
             </div>
           </div>

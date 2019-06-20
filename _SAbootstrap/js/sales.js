@@ -23,23 +23,22 @@ function salesProductsList(){
 function getSales(id_Product) {
     listProductLocalStorage = JSON.parse(localStorage.getItem('product'));
 
-    var saleValue = "";
     var pedido = document.getElementById("qtdeOrder"+(id_Product-1)).value;
-    var somaPedido = 0; 
-    somaPedido += (listProductLocalStorage[id_Product-1].productPrice*pedido); 
-
-
-    saleValue = somaPedido;
+  
+    var somaPedido = (listProductLocalStorage[id_Product-1].productPrice*pedido); 
     
+    var saleValue = 0;
+    saleValue += somaPedido;    
 
     $("#saleValue").val(saleValue);
-    
-    
    
+    var prodName = listProductLocalStorage[id_Product-1].productName;
+    $("#ordList").append(prodName);
+
 }
 
 function saveSales() {
-    var venda = new Venda (nextId, saleDate, $("#productName").val(), $("#productType").val(), $("#productPrice").val(),)
+    var venda = new Venda (nextId, dateSale, $("#productName").val(), $("#productType").val(), $("#productPrice").val(),)
     
     listSalesLocalStorage.push(venda);
 

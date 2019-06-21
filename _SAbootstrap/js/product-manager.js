@@ -36,8 +36,14 @@ function insertProduct(){
 
     //atribuindo id automaticamente
 
-    var nextId = listProductLocalStorage.length +1;
-
+    var nextId;
+    if(localStorage.codigo_produto){
+        nextId =Number(localStorage.codigo_produto)+1;
+    }else{ 
+        nextId = 1;
+    }
+    localStorage.setItem("codigo_produto", nextId);   
+   
     /*if(localStorage.id_Product){localStorage.id_Product=Number(localStorage.id_Product)+1;}
     else{  localStorage.setItem("id_Product", 1);} */
     var foodtruck_id = JSON.parse(localStorage.getItem("foodtruck",));

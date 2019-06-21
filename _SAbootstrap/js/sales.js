@@ -1,5 +1,6 @@
 //Produtos à venda
 var listSalesLocalStorage = [];
+
 salesProductsList();
 
 function salesProductsList(){
@@ -38,9 +39,21 @@ function getSales(id_Product) {
 }
 
 function saveSales() {
-    var venda = new Venda (nextId, dateSale, $("#productName").val(), $("#productType").val(), $("#productPrice").val(),)
+    listSalesLocalStorage = JSON.parse(localStorage.getItem('venda'));
+    if(listSalesLocalStorage == null) {
+        listSalesLocalStorage = [];
+    }
+    date = new Date;
+    //dateSale= now.getDay()+","+now.getMonth()+","+now.getFullYear();
+    var nextIdSale = listSalesLocalStorage.length+1;
+    var foodtruck_id = JSON.parse(localStorage.getItem("foodtruck",));
+    
+
+    var venda = new Venda (nextIdSale, date, saleValue, foodtruck_id)
 
     listSalesLocalStorage.push(venda);
+
+    
 
     //= listSalesLocalStorage[i].productPrice * $("#qtdeOrder.value").val();
 }
@@ -53,5 +66,7 @@ function registerSale() {
   var estoque = parseFloat(listProductLocalStorage[0].productStock);
   estoque = estoque-pedido;
   document.getElementById("estoque").innerHTML = estoque;
-
+  
+  //Ativa a função de salvar venda.
+  saveSales();
 }

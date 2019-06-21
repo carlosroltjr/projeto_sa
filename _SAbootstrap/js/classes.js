@@ -12,8 +12,8 @@ class Foodtruck {
   }
 
 class Product {
-  constructor (id_Product, productName, productType,productPrice, productStock, codigo_foodtruck){
-      this.id_Product = id_Product;
+  constructor (productCode, productName, productType,productPrice, productStock, codigo_foodtruck){
+      this.productCode = productCode;
       this.productName = productName;
       this.productType = productType;
       this.productPrice = productPrice;

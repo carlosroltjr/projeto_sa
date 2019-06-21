@@ -18,8 +18,9 @@ class Product {
       this.productType = productType;
       this.productPrice = productPrice;
       this.productStock = productStock;
-      this.vendas = [];
       this.codigo_foodtruck = codigo_foodtruck;
+      this.vendas = [];
+      
   }
 
 }

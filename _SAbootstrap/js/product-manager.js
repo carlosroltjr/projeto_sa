@@ -1,4 +1,5 @@
 var listProductLocalStorage = [];
+var foodtruck_id = [];
 listProduct();
 
 function listProduct(){
@@ -28,7 +29,7 @@ function listProduct(){
 function insertProduct(){
     //salvando produto no localstorage
     listProductLocalStorage = JSON.parse(localStorage.getItem('product'));
-
+    
     if(listProductLocalStorage == null) {
         listProductLocalStorage = [];
     }
@@ -39,9 +40,9 @@ function insertProduct(){
 
     /*if(localStorage.id_Product){localStorage.id_Product=Number(localStorage.id_Product)+1;}
     else{  localStorage.setItem("id_Product", 1);} */
-
+    var foodtruck_id = JSON.parse(localStorage.getItem("foodtruck",));
     //recuperar dados no formulário
-    var product = new Product(nextId, $("#productName").val(), $("#productType").val(), $("#productPrice").val(), $("#productStock").val());
+    var product = new Product(nextId, $("#productName").val(), $("#productType").val(), $("#productPrice").val(), $("#productStock").val(), foodtruck_id);
 
     listProductLocalStorage.push(product);
 
@@ -66,6 +67,7 @@ function getEditProduct(id_Product){
     $("#productType").val(productEdit.productType);
     $("#productPrice").val(productEdit.productPrice);
     $("#productStock").val(productEdit.productStock);
+    $("#codigo_foodtruck").val(productEdit.codigo_foodtruck);
 
     $('#prodModal').modal('show');
 
@@ -81,7 +83,7 @@ function createEditProduct(){
 
 function saveEditProduct(){
 
-    var productEdited = new Product ($("#id_Product").val(), $("#productName").val(), $("#productType").val(), $("#productPrice").val(), $("#productStock").val());
+    var productEdited = new Product ($("#id_Product").val(), $("#productName").val(), $("#productType").val(), $("#productPrice").val(), $("#productStock").val(),$("#codigo_foodtruck").val());
 
     listProductLocalStorage[$("#position_Product_Array").val()] = productEdited;
 

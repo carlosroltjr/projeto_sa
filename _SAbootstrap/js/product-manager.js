@@ -18,7 +18,13 @@ function listProduct(){
     var html = "";
 
     for (var i=0; i<listProductLocalStorage.length; i++) {
-        html += '<tr>' + '<th width="50">'+listProductLocalStorage[i].id_Product+'</th>' + '<th>'+listProductLocalStorage[i].productName+'</th>'+ '<th width="100">'+listProductLocalStorage[i].productType+'</th>'+ '<th width="75">'+listProductLocalStorage[i].productPrice+'</th>'+ '<th width="100">'+listProductLocalStorage[i].productStock+'</th>'+ '<th width="100">'+'<button type="button" class="btn btn-secondary btn-small" onclick="javascript:getEditProduct(' + i + ')">Editar</button>' +'</th>' + '<th width="100">'+ '<button type="button" class="btn btn-danger btn-small" onclick="javascript:getDelProduct(' + i + ')">Excluir</button><br>' +'</th>'+ '</tr>';
+        html += '<tr>' + '<th width="50">'+listProductLocalStorage[i].productCode+'</th>' + 
+        '<th>'+listProductLocalStorage[i].productName+'</th>'+ 
+        '<th width="100">'+listProductLocalStorage[i].productType+'</th>'+ 
+        '<th width="75">'+listProductLocalStorage[i].productPrice+'</th>'+ 
+        '<th width="100">'+listProductLocalStorage[i].productStock+'</th>'+ 
+        '<th width="100">'+'<button type="button" class="btn btn-secondary btn-small" onclick="javascript:getEditProduct(' + i + ')">Editar</button>' +
+        '</th>' + '<th width="100">'+ '<button type="button" class="btn btn-danger btn-small" onclick="javascript:getDelProduct(' + i + ')">Excluir</button><br>' +'</th>'+ '</tr>';
     }
 
     $("#listProduct").append(html);
@@ -35,17 +41,17 @@ function insertProduct(){
     }
 
     //atribuindo id automaticamente
-
     var nextId;
-    if(localStorage.codigo_produto){
-        nextId =Number(localStorage.codigo_produto)+1;
+    
+    if(localStorage.productCode){
+        nextId =Number(localStorage.productCode)+1;
     }else{ 
         nextId = 1;
     }
-    localStorage.setItem("codigo_produto", nextId);   
+    localStorage.setItem("productCode", nextId);   
+
+
    
-    /*if(localStorage.id_Product){localStorage.id_Product=Number(localStorage.id_Product)+1;}
-    else{  localStorage.setItem("id_Product", 1);} */
     var foodtruck_id = JSON.parse(localStorage.getItem("foodtruck",));
     //recuperar dados no formulário
     var product = new Product(nextId, $("#productName").val(), $("#productType").val(), $("#productPrice").val(), $("#productStock").val(), foodtruck_id);
@@ -67,7 +73,7 @@ function getEditProduct(id_Product){
 
     var productEdit = listProductLocalStorage[id_Product];
 
-    $("#id_Product").val(productEdit.id_Product);
+    $("#productCode").val(productEdit.productCode);
     $("#position_Product_Array").val(id_Product);
     $("#productName").val(productEdit.productName);
     $("#productType").val(productEdit.productType);
@@ -80,7 +86,7 @@ function getEditProduct(id_Product){
 }
 
 function createEditProduct(){
-    if ($("#id_Product").val() !== "") {
+    if ($("#productCode").val() !== "") {
         saveEditProduct();
     } else {
         insertProduct();
@@ -89,7 +95,7 @@ function createEditProduct(){
 
 function saveEditProduct(){
 
-    var productEdited = new Product ($("#id_Product").val(), $("#productName").val(), $("#productType").val(), $("#productPrice").val(), $("#productStock").val(),$("#codigo_foodtruck").val());
+    var productEdited = new Product ($("#productCode").val(), $("#productName").val(), $("#productType").val(), $("#productPrice").val(), $("#productStock").val(),$("#codigo_foodtruck").val());
 
     listProductLocalStorage[$("#position_Product_Array").val()] = productEdited;
 
@@ -100,7 +106,7 @@ function saveEditProduct(){
     alert("Produto editado com sucesso.")
 
     //resetando valores
-    $("#id_Product").val(null);
+    $("#productCode").val(null);
     $("#position_Product_Array").val(null);
 
     //recarrega a pagina

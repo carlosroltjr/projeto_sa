@@ -76,9 +76,9 @@
           <li class="breadcrumb-item active">Vendas</li>
         </ol>
 
-        <div class="card mb-3">
+        <div class="card mb-2">
             <div class="card-header">
-                <i class="fas fa-table"></i> Food Truck
+                <i class="fas fa-table"></i>
             </div>
             <div class="card-body">
                   <p>INSERIR INFORMAÇÕES DO FOOD TRUCK</p>
@@ -92,33 +92,33 @@
         </div>
 
         <div class="card mb-3">
-          <div class="card-body">
-            <div class="text col-sm-5">
-              <h5><strong>Número de Vendas no Dia:<span id="quantSales"></span></strong></h5><br>
-          </div>
-          <div class="table-responsive">
-            <table class="table table-hover table-bordered" id="dataTable" width="100%" cellspacing="0">
+       
+         <div class="card-body">
+          <div class="table-wrapper-scroll-y my-custom-scrollbar">
 
-              <thead>
-                <tr>
-                    <th>Id</th>
+            <table class="table table-bordered table-striped mb-0">
+
+                <thead>
+                  <tr>
+                    <th>ID</th>
                     <th>Produto</th>
                     <th>Tipo</th>
                     <th>R$</th>
                     <th>Disponível</th>
                     <th>Pedido</th>
                     <th>Confirmar</th>
-                </tr>
-              </thead>
+                  </tr>
+                </thead>
            
-
               <tbody id="listSales"></tbody>
+           
+           </table>
+        </div>
 
 
-            </table>
-            <div class="card mb-3">
+           <div class="card mb-3">
                 <div class="card-header">
-                    <h6>Resumo do Pedido</h6>
+                    
                   </div>
               <div class="row">
               <div class="col-12 col-md-8">
@@ -137,6 +137,7 @@
                     <p>R$<input type="text" id="saleValue" style="background: #FFCC99; font-weight: bold;" name="total_val" class="input-medium focused span6 result" readonly="readonly" value="00,00"/>
                     </p>
                     <a href="#" onclick="registerSale()" class="btn btn-primary btn-small">Confirmar Venda</a>
+                    <a href="#" onclick="location.reload()" class="btn btn-danger  btn-small">Cancelar Venda</a>
                   </div>
                 </div>
               </div>

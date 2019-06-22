@@ -28,6 +28,7 @@ function salesProductsList(){
 }
 
 var saleValue = 0;
+
 function getSales(productCode) {
     listProductLocalStorage = JSON.parse(localStorage.getItem('product'));
 
@@ -38,9 +39,10 @@ function getSales(productCode) {
     saleValue += somaPedido;
 
     $("#saleValue").val(saleValue);
+    
 
     var prodName = listProductLocalStorage[productCode-1].productName;
-    $("#ordList").append(prodName);
+    $("#ordList").append(prodName + " " + pedido +"x <br>");
 
 }
 

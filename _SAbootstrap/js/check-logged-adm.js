@@ -1,6 +1,7 @@
 
 isLogged = JSON.parse(localStorage.getItem("logged"));
 checkAdmin = JSON.parse(localStorage.getItem("checkAdmin"));
+foodtruck_id = loadFromStorage("id_foodtruck_logado");
 
 if (isLogged){
   if (checkAdmin){
@@ -12,4 +13,15 @@ if (isLogged){
 } else{
   alert("Você não está logado!");
   window.open('login.html', '_self');
+}
+
+
+function loadFromStorage(key){
+	const data = localStorage.getItem(key)
+	return JSON.parse(data)
+}
+
+function saveToStorage(key, value){
+	const data = JSON.stringify(value)
+	localStorage.setItem(key,data)
 }

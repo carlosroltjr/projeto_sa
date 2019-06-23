@@ -23,3 +23,86 @@ google.charts.load('current', {'packages':['corechart']});
         var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
         chart.draw(data, options);
       }
+
+
+function saleReport (){
+
+  //range de data - filtrando por data
+
+  var sales = loadFromStorage("venda")
+
+    if (typeof (Storage) !== "undefined"){
+        if (sales == null) {
+            sales = [];
+        }
+    }
+
+
+  var date = new Date();
+  var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+  var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+
+  const report = sales
+    .filter(v => {
+      if (checkAdmin)
+        return true
+      return (v.codigo_foodtruck) == foodtruck_id
+    })
+    .filter(v => {
+      const saleTime = Date.parse(v.dateSale);
+      return saleTime < lastDay.valueOf() && saleTime > firstDay.valueOf();
+    });
+
+  const reportPerFoodtruck = new Map();
+  for(let sale of report) {
+    const saleOwner = sale.codigo_foodtruck;
+    if (!reportPerFoodtruck.has(saleOwner))
+    {
+      reportPerFoodtruck.set(saleOwner, []);
+    }
+    reportPerFoodtruck.get(saleOwner).push(sale);
+  }
+
+  let owners = Array.from(reportPerFoodtruck.keys());
+  for (let ownerId of owners)
+  {
+    let ownerReports = reportPerFoodtruck.get(ownerId);
+
+    let html = `
+      <table class="table table-bordered-striped" id="tabela">
+        <tr>
+          <th colspan="3">${ownerId}</th>
+        </tr>
+        <tr>
+          <th>Id da venda</th>
+          <th>Data e hora</th>
+          <th>Valor</th>
+        </tr>
+        <tbody>`;
+
+    var total = 0;
+    for (let sale of ownerReports) {
+      html +=`
+        <tr>
+          <td>${sale.idSales}</td> 
+          <td>${sale.dateSale}</td> 
+          <td>${sale.valueSale}</td> 
+        </tr>`;
+      total+=parseFloat(sale.valueSale);
+    }
+
+    html += `
+        </tbody>
+        <tfoot> 
+          <tr>
+            <th colspan="2">Total das Vendas:</th>
+            <td>${total}</td>
+          </tr>
+        </tfoot>
+      </table>`;
+    $("#tables").append(html);
+  }
+}
+
+
+saleReport ()

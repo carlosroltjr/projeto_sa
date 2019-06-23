@@ -15,14 +15,22 @@ function salesProductsList(){
     var html = "";
 
     for (var i=0; i<listProductLocalStorage.length; i++) {
-        html += '<tr>' + '<th>'+listProductLocalStorage[i].productCode+'</th>' + 
-        '<th>'+listProductLocalStorage[i].productName+'</th>'+ 
-        '<th>'+listProductLocalStorage[i].productType+'</th>'+ 
-        '<th>'+listProductLocalStorage[i].productPrice+'</th>'+ 
-        '<th id="estoque">'+listProductLocalStorage[i].productStock+'</th>'+ 
-        '<th>'+'<input type="number" id="qtdeOrder'+i+'" class="input-number" max="'+ listProductLocalStorage[i].productStock +'"></input>' +'</th>' + 
-        '<th>'+ '<button type="button" class="btn btn-info btn-small" onclick="javascript:getSales(' + listProductLocalStorage[i].productCode + ')">Adicionar Produto</button><br>' +'</th>'+ '</tr>';
+
+        var produto = listProductLocalStorage[i]
+
+        if (foodtruck_id == produto.codigo_foodtruck) {
+
+          html += '<tr>' + '<th>'+produto.productCode+'</th>' + 
+          '<th>'+produto.productName+'</th>'+ 
+          '<th>'+produto.productType+'</th>'+ 
+          '<th>'+produto.productPrice+'</th>'+ 
+          '<th id="estoque'+produto.productCode+'">'+produto.productStock+'</th>'+ 
+          '<th>'+'<input type="number" id="qtdeOrder'+produto.productCode+'" class="input-number" max="'+ produto.productStock +'"></input>' +'</th>' + 
+          '<th>'+ '<button type="button" class="btn btn-info btn-small" onclick="javascript:getSales(' + produto.productCode + ')">Adicionar Produto</button><br>' +'</th>'+ '</tr>';
+        }
     }
+
+//id="estoque'+i+'" foi colocado 'i' - para que cada produto descremente no estoque 
 
     $("#listSales").append(html);
 }
@@ -32,8 +40,11 @@ var saleValue = 0;
 function getSales(productCode) {
     listProductLocalStorage = JSON.parse(localStorage.getItem('product'));
 
-    var pedido = document.getElementById("qtdeOrder"+(productCode-1)).value;
-    var preco = parseFloat(listProductLocalStorage[productCode-1].productPrice);
+    const produto = listProductLocalStorage
+        .find(p => p.productCode == productCode)
+
+    var pedido = document.getElementById("qtdeOrder"+(produto.productCode)).value;
+    var preco = parseFloat(produto.productPrice);
     var somaPedido = preco*pedido;
 
     saleValue += somaPedido;
@@ -41,7 +52,7 @@ function getSales(productCode) {
     $("#saleValue").val(saleValue);
     
 
-    var prodName = listProductLocalStorage[productCode-1].productName;
+    var prodName = produto.productName
     $("#ordList").append(prodName + " " + pedido +"x <br>");
 
 }
@@ -51,15 +62,18 @@ function saveSales() {
     if(listSalesLocalStorage == null) {
         listSalesLocalStorage = [];
     }
-    date = new Date;
+//new date é dizer que a venda será na data atual
+    const date = new Date;
     //dateSale= now.getDay()+","+now.getMonth()+","+now.getFullYear();
     var nextIdSale = listSalesLocalStorage.length+1;
-    var foodtruck_id = JSON.parse(localStorage.getItem("foodtruck",));
-    
-
+    var saleValue = parseFloat($("#saleValue").val())
     var venda = new Venda (nextIdSale, date, saleValue, foodtruck_id)
-
+    
     listSalesLocalStorage.push(venda);
+
+//estava faltando salvar no localstorage novamente
+
+    saveToStorage("venda", listSalesLocalStorage)
 
     
 
@@ -70,11 +84,19 @@ function saveSales() {
 function registerSale() {
   /* isso é só pra testar, qnd der f5 na página volta as
   informações originais. */
-  var pedido = document.getElementById("qtdeOrder0").value;
-  var estoque = parseFloat(listProductLocalStorage[0].productStock);
-  estoque = estoque-pedido;
-  document.getElementById("estoque").innerHTML = estoque;
+  for (var i = 0; listProductLocalStorage.length>i; i++){
+      const produto = listProductLocalStorage[i];
+      var qtdpedido = document.getElementById("qtdeOrder"+produto.productCode).value;
+      var estoque = parseFloat(produto.productStock);
+      estoque = estoque-qtdpedido;
+      document.getElementById("estoque"+produto.productCode).innerHTML = estoque;
+
+      produto.productStock = estoque
+  }
+
+  saveToStorage("product", listProductLocalStorage)
+
   
   //Ativa a função de salvar venda.
-  saveSales();
+ saveSales();
 }

@@ -1,5 +1,5 @@
 var listProductLocalStorage = [];
-var foodtruck_id = [];
+
 listProduct();
 
 function listProduct(){
@@ -18,6 +18,9 @@ function listProduct(){
     var html = "";
 
     for (var i=0; i<listProductLocalStorage.length; i++) {
+
+     if (foodtruck_id == listProductLocalStorage[i].codigo_foodtruck) {
+
         html += '<tr>' + '<th width="50">'+listProductLocalStorage[i].productCode+'</th>' + 
         '<th>'+listProductLocalStorage[i].productName+'</th>'+ 
         '<th width="100">'+listProductLocalStorage[i].productType+'</th>'+ 
@@ -26,6 +29,7 @@ function listProduct(){
         '<th width="100">'+'<button type="button" class="btn btn-secondary btn-small" onclick="javascript:getEditProduct(' + i + ')">Editar</button>' +
         '</th>' + '<th width="100">'+ '<button type="button" class="btn btn-danger btn-small" onclick="javascript:getDelProduct(' + i + ')">Excluir</button><br>' +'</th>'+ '</tr>';
     }
+}
 
     $("#listProduct").append(html);
 
@@ -52,7 +56,6 @@ function insertProduct(){
 
 
    
-    var foodtruck_id = JSON.parse(localStorage.getItem("foodtruck",));
     //recuperar dados no formulário
     var product = new Product(nextId, $("#productName").val(), $("#productType").val(), $("#productPrice").val(), $("#productStock").val(), foodtruck_id);
 
@@ -95,7 +98,7 @@ function createEditProduct(){
 
 function saveEditProduct(){
 
-    var productEdited = new Product ($("#productCode").val(), $("#productName").val(), $("#productType").val(), $("#productPrice").val(), $("#productStock").val(),$("#codigo_foodtruck").val());
+    var productEdited = new Product ($("#productCode").val(), $("#productName").val(), $("#productType").val(), $("#productPrice").val(), $("#productStock").val(), foodtruck_id);
 
     listProductLocalStorage[$("#position_Product_Array").val()] = productEdited;
 

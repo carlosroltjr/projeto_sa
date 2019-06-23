@@ -1,12 +1,10 @@
-var foodtrucklist = [];
+var foodtrucklist = [];var foodtrucklist = [];
 listFoodtruck();
 
 
 function listFoodtruck() {
     foodtrucklist = JSON.parse(localStorage.getItem('foodtruck'));
-   
-
-    //verifica se o navegador tem suporte para localStorage
+    //salvando o foodtruck no localstorage
     if (typeof (Storage) !== "undefined") {
 
         if (foodtrucklist == null) {
@@ -18,7 +16,6 @@ function listFoodtruck() {
     //atribuindo a quantidade de foodtrucks
     $("#quantidadeFoodtrucks").html(foodtrucklist.length.toString());
 
-    //cria a lista de food trucks em cards
     var html = "";
 
     for (var i = 0; i < foodtrucklist.length; i++) {
@@ -44,33 +41,20 @@ function listFoodtruck() {
             '</div>';
     }
 
-    //insere conteúdo ao final da lista
     $("#listFoodtruck").append(html);
 
 }
 
-
-
-function createOrEditFoodtruck() {
-//diferencia as ações - por usar o mesmo modal 
-
-    if ($("#codigo_foodtruck").val() !== "") { 
-        saveEditFoodtruck(); 
-    }else{ 
-        createFoodtruck(); 
-    }
-
-}
-
-
-
 function createFoodtruck() {
-//salvando o foodtruck no localstorage
+        //salvando o foodtruck no localstorage
 
     foodtrucklist = JSON.parse(localStorage.getItem('foodtruck'));
 
+    if (foodtrucklist == null) {
+        foodtrucklist = [];
+    }
 
-    //atribuindo o id de forma automatica - para não haver ID repetido em caso de exclusão
+    //atribuindo o id de forma automatica - vai sempre ser o max + 1
     var nextId;
     
     if(localStorage.codigo_foodtruck){
@@ -81,29 +65,25 @@ function createFoodtruck() {
    
     localStorage.setItem("codigo_foodtruck", nextId);
 
-    //recuperando os dados do formulario
+    //recuperar os dados do formulario
     var foodtruck = new Foodtruck(nextId, $("#nome_foodtruck").val(), $("#responsavel").val(), $("#data").val(), $("#telefone").val(), $("#login").val(), $("#senha").val());
 
-    //inserindo novo foodtruck criado na lista
     foodtrucklist.push(foodtruck);
 
-    //criando a lista em string para salvar no localStorage    
     var foodtrucklistJson = JSON.stringify(foodtrucklist);
+
     localStorage.setItem('foodtruck', foodtrucklistJson);
 
+    alert("Cadastro realizado com sucesso");
 
-    alert("Cadastro realizado com sucesso!");
-
-    //recarregando a página - para gerar novo foodtrucklist
+    //recarrega a pagina
     location.reload();
 
 }
 
 function getEditFoodtruck(id) {
-//mostrando o modal para editar food truck - pelo ID html
 
-    var foodtruckEdit = foodtrucklist[id];    //foodtruckEdit = valores que serão editados
-
+    var foodtruckEdit = foodtrucklist[id];
 
     $("#codigo_foodtruck").val(foodtruckEdit.codigo_foodtruck);
     $("#position_foodtruck_array").val(id);
@@ -118,23 +98,31 @@ function getEditFoodtruck(id) {
 }
 
 
+function createOrEditFoodtruck() {
 
+  if ($("#codigo_foodtruck").val() !== "") { saveEditFoodtruck(); }
+  else { createFoodtruck(); }
 
+}
 
 
 function saveEditFoodtruck() {
-//valores editados são colocados de volta no array da lista
 
     var foodTruckEdited = new Foodtruck ($("#codigo_foodtruck").val(),$("#nome_foodtruck").val(), $("#responsavel").val(), $("#data").val(), $("#telefone").val(), $("#login").val(), $("#senha").val());
 
-    foodtrucklist[$("#position_foodtruck_array").val()] = foodTruckEdited;     //foodtruckEdited são os valores que foram editados
-    
+    foodtrucklist[$("#position_foodtruck_array").val()] = foodTruckEdited;
+
+    var foodtrucklistJson = JSON.stringify(foodtrucklist);
+
+    localStorage.setItem('foodtruck', foodtrucklistJson);
+
+    alert("Edição realizada com sucesso");
+
     // resetando os valores
     $("#codigo_foodtruck").val(null);
     $("#position_foodtruck_array").val(null);
 
-    
-    //recarregando a pagina
+    //recarrega a pagina
     location.reload();
 
 }
@@ -149,19 +137,18 @@ function getDelFoodtruck(id) {
 function deleteFoodtruck() {
 
     //remove o item do array
-    foodtrucklist.splice($("#position_foodtruck_array_delete").val(), 1);  //índice inicial do elemento ,  a quantidade de elementos que serão retirados
+    foodtrucklist.splice($("#position_foodtruck_array_delete").val(), 1);
 
     var foodtrucklistJson = JSON.stringify(foodtrucklist);
 
     localStorage.setItem('foodtruck', foodtrucklistJson);
 
-    alert("Exclusão realizada com sucesso!");
+    alert("Exclusão realizada com sucesso");
 
-
-    //resetando
     $("#position_foodtruck_array_delete").val(null);
 
     //recarrega a pagina
     location.reload();
+
 
 }

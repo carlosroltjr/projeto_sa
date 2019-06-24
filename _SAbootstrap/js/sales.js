@@ -95,8 +95,18 @@ function registerSale() {
   }
 
   saveToStorage("product", listProductLocalStorage)
+   
+  alert("Venda confirmada!");     //alteração
 
+  location.reload();              //alteração
   
   //Ativa a função de salvar venda.
  saveSales();
+}
+
+function cancelSale(){
+
+  alert("Venda cancelada!");
+
+  location.reload();
 }

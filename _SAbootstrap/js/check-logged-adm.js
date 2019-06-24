@@ -9,7 +9,6 @@ if (isLogged){
     document.getElementById('sales').onclick = function(){ return false }
   } else{
     document.getElementById('foodtrucks').onclick = function(){ return false }
-    document.getElementById('charts').onclick = function(){ return false }
   }
 } else{
   alert("Você não está logado!");

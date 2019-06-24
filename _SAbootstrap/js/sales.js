@@ -96,9 +96,9 @@ function registerSale() {
 
   saveToStorage("product", listProductLocalStorage)
    
-  alert("Venda confirmada!");     //alteração
+  alert("Venda confirmada!");    
 
-  location.reload();              //alteração
+  location.reload();             
   
   //Ativa a função de salvar venda.
  saveSales();

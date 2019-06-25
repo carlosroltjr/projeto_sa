@@ -1,6 +1,8 @@
 //Produtos à venda
 var listSalesLocalStorage = [];
 
+var products = [];
+
 salesProductsList();
 
 function salesProductsList(){
@@ -49,6 +51,8 @@ function getSales(productCode) {
 
     saleValue += somaPedido;
 
+    products.push(produto);
+
     $("#saleValue").val(saleValue);
 
 
@@ -67,7 +71,7 @@ function saveSales() {
     //dateSale= now.getDay()+","+now.getMonth()+","+now.getFullYear();
     var nextIdSale = listSalesLocalStorage.length+1;
     var saleValue = parseFloat($("#saleValue").val())
-    var venda = new Venda (nextIdSale, date, saleValue, foodtruck_id)
+    var venda = new Venda (nextIdSale, date, saleValue, foodtruck_id,products)
 
     listSalesLocalStorage.push(venda);
 

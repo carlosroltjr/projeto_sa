@@ -26,11 +26,11 @@ class Product {
 }
 
 class Venda {
-  constructor (idSales, dateSale, valueSale, codigo_foodtruck){
+  constructor (idSales, dateSale, valueSale, codigo_foodtruck,products){
     this.idSales = idSales;
     this.dateSale = dateSale;
     this.valueSale = valueSale;
     this.codigo_foodtruck = codigo_foodtruck;
-    
+    this.products = products;
   }
 }

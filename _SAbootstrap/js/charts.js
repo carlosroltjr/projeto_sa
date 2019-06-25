@@ -68,10 +68,14 @@ function saleReport (){
   {
     let ownerReports = reportPerFoodtruck.get(ownerId);
 
+    var listFoodtruckLocalStorage = JSON.parse(localStorage.getItem('foodtruck'));
+
+    const foodtruck = listFoodtruckLocalStorage.find(p => p.codigo_foodtruck == ownerId)
+
     let html = `
       <table class="table table-bordered-striped" id="tabela">
         <tr>
-          <th colspan="3">${ownerId}</th>
+          <th colspan="3">${foodtruck.nome_foodtruck}</th>
         </tr>
         <tr>
           <th>ID DA VENDA</th>
@@ -82,6 +86,7 @@ function saleReport (){
 
     var total = 0;
     for (let sale of ownerReports) {
+
       html +=`
         <tr>
           <td>${sale.idSales}</td> 

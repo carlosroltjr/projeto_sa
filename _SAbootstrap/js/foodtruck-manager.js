@@ -1,4 +1,4 @@
-var foodtrucklist = [];var foodtrucklist = [];
+var foodtrucklist = [];
 listFoodtruck();
 
 

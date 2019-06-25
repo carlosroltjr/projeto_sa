@@ -74,9 +74,9 @@ function saleReport (){
           <th colspan="3">${ownerId}</th>
         </tr>
         <tr>
-          <th>Id da venda</th>
-          <th>Data e hora</th>
-          <th>Valor</th>
+          <th>ID DA VENDA</th>
+          <th>DATA E HORA</th>
+          <th>VALOR</th>
         </tr>
         <tbody>`;
 

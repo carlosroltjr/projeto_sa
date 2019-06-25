@@ -20,17 +20,17 @@ function salesProductsList(){
 
         if (foodtruck_id == produto.codigo_foodtruck) {
 
-          html += '<tr>' + '<th>'+produto.productCode+'</th>' + 
-          '<th>'+produto.productName+'</th>'+ 
-          '<th>'+produto.productType+'</th>'+ 
-          '<th>'+produto.productPrice+'</th>'+ 
-          '<th id="estoque'+produto.productCode+'">'+produto.productStock+'</th>'+ 
-          '<th>'+'<input type="number" id="qtdeOrder'+produto.productCode+'" class="input-number" max="'+ produto.productStock +'"></input>' +'</th>' + 
+          html += '<tr>' + '<th>'+produto.productCode+'</th>' +
+          '<th>'+produto.productName+'</th>'+
+          '<th>'+produto.productType+'</th>'+
+          '<th>'+produto.productPrice+'</th>'+
+          '<th id="estoque'+produto.productCode+'">'+produto.productStock+'</th>'+
+          '<th>'+'<input type="number" id="qtdeOrder'+produto.productCode+'" class="input-number" max="'+ produto.productStock +'"></input>' +'</th>' +
           '<th>'+ '<button type="button" class="btn btn-info btn-small" onclick="javascript:getSales(' + produto.productCode + ')">Adicionar Produto</button><br>' +'</th>'+ '</tr>';
         }
     }
 
-//id="estoque'+i+'" foi colocado 'i' - para que cada produto descremente no estoque 
+//id="estoque'+i+'" foi colocado 'i' - para que cada produto descremente no estoque
 
     $("#listSales").append(html);
 }
@@ -50,7 +50,7 @@ function getSales(productCode) {
     saleValue += somaPedido;
 
     $("#saleValue").val(saleValue);
-    
+
 
     var prodName = produto.productName
     $("#ordList").append(prodName + " " + pedido +"x <br>");
@@ -68,14 +68,14 @@ function saveSales() {
     var nextIdSale = listSalesLocalStorage.length+1;
     var saleValue = parseFloat($("#saleValue").val())
     var venda = new Venda (nextIdSale, date, saleValue, foodtruck_id)
-    
+
     listSalesLocalStorage.push(venda);
 
 //estava faltando salvar no localstorage novamente
 
     saveToStorage("venda", listSalesLocalStorage)
 
-    
+
 
     //= listSalesLocalStorage[i].productPrice * $("#qtdeOrder.value").val();
 }
@@ -86,20 +86,24 @@ function registerSale() {
   informações originais. */
   for (var i = 0; listProductLocalStorage.length>i; i++){
       const produto = listProductLocalStorage[i];
-      var qtdpedido = document.getElementById("qtdeOrder"+produto.productCode).value;
-      var estoque = parseFloat(produto.productStock);
-      estoque = estoque-qtdpedido;
-      document.getElementById("estoque"+produto.productCode).innerHTML = estoque;
 
-      produto.productStock = estoque
+      if (foodtruck_id == produto.codigo_foodtruck) {
+
+        var qtdpedido = document.getElementById("qtdeOrder"+produto.productCode).value;
+        var estoque = parseFloat(produto.productStock);
+        estoque = estoque-qtdpedido;
+        document.getElementById("estoque"+produto.productCode).innerHTML = estoque;
+
+        produto.productStock = estoque;
+      }
   }
 
   saveToStorage("product", listProductLocalStorage)
-   
-  alert("Venda confirmada!");    
 
-  location.reload();             
-  
+  alert("Venda confirmada!");
+
+  location.reload();
+
   //Ativa a função de salvar venda.
  saveSales();
 }

@@ -21,11 +21,11 @@ function listProduct(){
 
      if (foodtruck_id == listProductLocalStorage[i].codigo_foodtruck) {
 
-        html += '<tr>' + '<th width="50">'+listProductLocalStorage[i].productCode+'</th>' + 
-        '<th>'+listProductLocalStorage[i].productName+'</th>'+ 
-        '<th width="100">'+listProductLocalStorage[i].productType+'</th>'+ 
-        '<th width="75">'+listProductLocalStorage[i].productPrice+'</th>'+ 
-        '<th width="100">'+listProductLocalStorage[i].productStock+'</th>'+ 
+        html += '<tr>' + '<th width="50">'+listProductLocalStorage[i].productCode+'</th>' +
+        '<th>'+listProductLocalStorage[i].productName+'</th>'+
+        '<th width="100">'+listProductLocalStorage[i].productType+'</th>'+
+        '<th width="75">'+listProductLocalStorage[i].productPrice+'</th>'+
+        '<th width="100">'+listProductLocalStorage[i].productStock+'</th>'+
         '<th width="100">'+'<button type="button" class="btn btn-secondary btn-small" onclick="javascript:getEditProduct(' + i + ')">Editar</button>' +
         '</th>' + '<th width="100">'+ '<button type="button" class="btn btn-danger btn-small" onclick="javascript:getDelProduct(' + i + ')">Excluir</button><br>' +'</th>'+ '</tr>';
     }
@@ -39,25 +39,19 @@ function listProduct(){
 function insertProduct(){
     //salvando produto no localstorage
     listProductLocalStorage = JSON.parse(localStorage.getItem('product'));
-    
+
     if(listProductLocalStorage == null) {
         listProductLocalStorage = [];
     }
 
     //atribuindo id automaticamente
-    var nextId;
-    
-    if(localStorage.productCode){
-        nextId =Number(localStorage.productCode)+1;
-    }else{ 
-        nextId = 1;
-    }
-    localStorage.setItem("productCode", nextId);   
+    var nextId = listProductLocalStorage.length +1;
 
 
-   
     //recuperar dados no formulário
-    var product = new Product(nextId, $("#productName").val(), $("#productType").val(), $("#productPrice").val(), $("#productStock").val(), foodtruck_id);
+
+    
+    var product = new Product(nextId,  $("#productName").val(), $("#productType").val(), $("#productPrice").val(), $("#productStock").val(), foodtruck_id);
 
     listProductLocalStorage.push(product);
 

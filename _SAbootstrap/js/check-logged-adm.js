@@ -5,10 +5,10 @@ foodtruck_id = loadFromStorage("id_foodtruck_logado");
 
 if (isLogged){
   if (checkAdmin){
-    document.getElementById('products').onclick = function(){ return false }
-    document.getElementById('sales').onclick = function(){ return false }
+    document.getElementById('products').onclick = function(){ alert("Acesso Negado!"); return false }
+    document.getElementById('sales').onclick = function(){ alert("Acesso Negado!"); return false }
   } else{
-    document.getElementById('foodtrucks').onclick = function(){ return false }
+    document.getElementById('foodtrucks').onclick = function(){ alert("Acesso Negado!"); return false }
   }
 } else{
   alert("Você não está logado!");

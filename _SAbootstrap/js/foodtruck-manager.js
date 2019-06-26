@@ -20,7 +20,7 @@ function listFoodtruck() {
 
     for (var i = 0; i < foodtrucklist.length; i++) {
         html += '<div class="col-sm-4">' +
-            '<div class="card text-center" style="width:20rem; height:23rem;";>' +
+            '<div class="card text-center mt-5" style="width:20rem; height:23rem;";>' +
             '<div class="card-header text-white bg-dark mb-2">' +
             '<h4 class="text">' + foodtrucklist[i].nome_foodtruck + '</h4>' +
             '</div>' +

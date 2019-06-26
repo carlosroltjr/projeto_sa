@@ -1,7 +1,8 @@
 // global variables
 
 var listFoodtruckLocalStorage = loadFromStorage('foodtruck');
-var sales = loadFromStorage('venda')
+var sales = loadFromStorage('venda');
+var idFoodtruckLogado = loadFromStorage('id_foodtruck_logado') != undefined ? loadFromStorage('id_foodtruck_logado') : null;
 
 google.charts.load('current', {'packages': ['corechart']});
 google.charts.setOnLoadCallback(drawVisualization);
@@ -15,6 +16,14 @@ function drawVisualization() {
   var arrayValues = [];
 
   arrayTitle.push('Month');
+
+  //exibindo somente os resultados do foodtruck logado se n for admin
+  if(!checkAdmin)
+  {
+      listFoodtruckLocalStorage = listFoodtruckLocalStorage.filter(f=> f.codigo_foodtruck == idFoodtruckLogado)
+     sales = sales.filter(s=> s.codigo_foodtruck == idFoodtruckLogado);
+  }
+  
 
   for(let food of listFoodtruckLocalStorage)
   {
